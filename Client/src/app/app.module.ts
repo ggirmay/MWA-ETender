@@ -13,6 +13,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatButtonModule} from '@angular/material/button';
 import { PostComponent } from './post.component';
+import {ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -26,10 +27,13 @@ import { PostComponent } from './post.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatInputModule,
+
+    MatButtonModule,
+    ReactiveFormsModule,
+
     FormsModule,
     MatCheckboxModule
 
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
