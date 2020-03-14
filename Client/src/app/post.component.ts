@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
   template: `
-
   <h3>Posting a bet</h3>
-  <form >
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
   <mat-form-field >
     <mat-label>item Name </mat-label>
-    <input matInput placeholder="item">
+    <input matInput placeholder="item" type="text" formControlName="itemName">
   </mat-form-field><br>
 
   <mat-form-field >
     <mat-label>amount</mat-label>
-    <textarea matInput placeholder="amount"></textarea>
-  // </mat-form-field><br>
+    <input matInput placeholder="amount" type="text" formControlName="amount"/>
+   </mat-form-field><br>
   <mat-form-field >
     <mat-label>Catagory</mat-label>
-    <textarea matInput placeholder="catagory"></textarea>
+    <input matInput placeholder="catagory" type="text" formControlName="catagory"/>
   </mat-form-field><br/>
   <mat-form-field >
     <mat-label>deadline</mat-label>
-    <textarea matInput placeholder="deadline"></textarea>
+    <input matInput placeholder="deadline" type="text" formControlName="deadline"/>
   </mat-form-field><br/>
   <button>send</button>
 
@@ -30,9 +30,20 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PostComponent implements OnInit {
+  postForm: FormGroup;
+  constructor(private fb: FormBuilder) { 
+    this.postForm=fb.group({
+      'itemName':['', Validators.required],
+      'amount':['', Validators.required],
+      'catagory':['', Validators.required],
+      'deadline':['']
+    })
+  }
 
-  constructor() { }
-
+  onSubmit(){
+    console.log(this.postForm);
+    
+  }
   ngOnInit(): void {
   }
 
