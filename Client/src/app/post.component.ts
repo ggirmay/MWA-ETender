@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-post',
   template: `
+
   <h3>Posting a bet</h3>
   <form >
   <mat-form-field >
@@ -23,6 +24,7 @@ import { Component, OnInit } from '@angular/core';
     <textarea matInput placeholder="deadline"></textarea>
   </mat-form-field><br/>
   <button>send</button>
+
 </form>
   `,
   styles: []
