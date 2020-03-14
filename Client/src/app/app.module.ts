@@ -1,12 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
+import {MatButtonModule} from '@angular/material/button';
 import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms'
 
@@ -17,12 +22,18 @@ import {ReactiveFormsModule} from '@angular/forms'
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatInputModule,
+
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    FormsModule,
+    MatCheckboxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
