@@ -3,10 +3,13 @@ const mongoose= require('mongoose');
 const Schema=mongoose.Schema;
 
 const clientSchema=new Schema({
-    name:String,
-    number:Number,
+    cname:String,
+    lnumber:Number,
     catagory:String,
-    location:String, 
+    email: String,
+    location:String,
+    uname:String, 
+    pwd : password
     // componeyName:{type:String, required:true },
     // location:{type:String, required:true },
     // email:{type:email, required:true },

@@ -18,11 +18,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegisterComponent } from './register.component'
 import { RegService } from './reg.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
-   RegisterComponent
+   RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
