@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const apiController=require('../controllers/apiController')
 const biddeController=require('../controllers/biddeController')
+const regController=require('../controllers/regController')
 const mongoose=require('mongoose')
 
 //mongodb://localhost:27017/eventsdb
@@ -40,9 +41,11 @@ router.get('/', (req,res)=>{
     
 });
 
-router.post('/register', (req,res)=>{
+// router.post('/register', (req,res)=>{
 
-});
+// });
+
+router.post('/register', regController.createUser);
 
 router.post('/bidde', biddeController.createbidde);
 

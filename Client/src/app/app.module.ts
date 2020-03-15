@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegisterComponent } from './register.component'
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
+import { RegService } from './reg.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { BidService } from './BidService';
     MatCheckboxModule
 
   ],
-  providers: [BiddeService,BidService],
+  providers: [BiddeService, BidService,RegService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
