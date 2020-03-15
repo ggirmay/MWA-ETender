@@ -6,25 +6,11 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class BidService  {
- constructor(private http: HttpClient  ) {
- }
- getOnlineData() {
-  return this.http.get('https://randomuser.me/api/?results=10')
-  .subscribe(res => {localStorage.setItem('data',
-  JSON.stringify(JSON.parse(JSON.stringify(res)).results)); } );
-  }
-getCachedData() {
-const localData = of(JSON.parse(localStorage.getItem('data')));
-console.log(localData)
-return localData;
-  }
-  getUserDetails(uuid) {
-    const allUsers = JSON.parse(localStorage.getItem('data'));
-    return of(allUsers.filter(user => user.login.uuid == uuid));
-  }
-  checkUserPresence(uuid) {
-    const allUsers = JSON.parse(localStorage.getItem('data'));
-    return allUsers.filter(user => user.login.uuid == uuid).length > 0;
-  }
 
+ constructor(private http: HttpClient) { }
+
+ postBid(bid){
+   return this.http.post('http://localhost:3000/postBid', bid);
+
+ }
 }
