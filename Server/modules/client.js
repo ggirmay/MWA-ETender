@@ -13,3 +13,4 @@ const clientSchema=new Schema({
 })
 
 module.exports=mongoose.model('client', clientSchema, 'clients')
+// module.exports=mongoose.model('client', postSchema)
