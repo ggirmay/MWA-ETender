@@ -16,6 +16,7 @@ import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegisterComponent } from './register.component'
+import { RegService } from './reg.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { RegisterComponent } from './register.component'
     MatCheckboxModule
 
   ],
-  providers: [BiddeService],
+  providers: [BiddeService, RegService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
