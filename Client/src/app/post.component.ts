@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BiddeService } from './bidde.service';
 
 @Component({
   selector: 'app-post',
@@ -31,18 +32,31 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class PostComponent implements OnInit {
   postForm: FormGroup;
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private _biddeService:BiddeService) { 
     this.postForm=fb.group({
       'itemName':['', Validators.required],
       'amount':['', Validators.required],
       'catagory':['', Validators.required],
       'deadline':['']
     })
+    // this.postForm.valueChanges.subscribe(
+    //   (data: any) => console.log(data)
+    // );
   }
 
   onSubmit(){
-    console.log(this.postForm);
-    
+    const formValue=this.postForm.value;
+    // const data={
+    //   'itemName':this.postForm.value.itemName,
+    //   'amount':this.postForm.value.amount,
+    //   'catagory':this.postForm.value.catagory,
+    //   'deadline':this.postForm.value.deadline
+    // }
+    console.log('data of form= '+JSON.stringify(formValue));
+    this._biddeService.createBidde(formValue)
+    .subscribe(
+      res=> console.log(res),
+      err=> console.log(err))   
   }
   ngOnInit(): void {
   }

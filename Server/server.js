@@ -5,11 +5,12 @@ const MongoClient = require('mongodb').MongoClient;
 const apiRouter=require('./routes/api')
 const app = express();
 const port = 3000;
-const url = 'mongodb://localhost:27017';
-const dbName = 'etender';
-let db;
+// const url = 'mongodb://localhost:27017';
+// const dbName = 'etender';
+// let db;
 
 app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(cors());
 
 // app.post('/api/message', (req, res) => {

@@ -1,0 +1,28 @@
+GET http://localhost:3000/
+
+###
+
+POST http://localhost:3000/bidde/
+Content-Type: application/json
+
+{
+    "itemName":"item1",
+    "amount":23,
+    "catagory":"Wood work",
+    "deadline":"12/12/12"
+}
+
+###
+POST http://localhost:3000/profile/
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="5f.jpg"
+Content-Type: image/jpeg
+
+< ./5f.jpg
+
+--MyBoundary--
+###
+DELETE http://localhost:3000/students/2
+

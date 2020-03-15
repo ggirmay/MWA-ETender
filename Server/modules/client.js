@@ -2,13 +2,14 @@ const mongoose= require('mongoose');
 
 const Schema=mongoose.Schema;
 
-const postSchema=new Schema({
+const clientSchema=new Schema({
     componeyName:{type:String, required:true },
     location:{type:String, required:true },
     email:{type:email, required:true },
     password:{type:String, required:true },
     bidder:Boolean,
-    catagory:[String]
+    catagory:[String],
+    biddePlaced:[{biddeId:{type:mongoose.Types.ObjectId, ref:'bidde'}}, price:String]
 })
 
-module.exports=mongoose.model('client', postSchema, 'clients')
+module.exports=mongoose.model('client', clientSchema, 'clients')

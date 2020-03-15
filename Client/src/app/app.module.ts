@@ -11,15 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 //import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import{BiddeService} from './bidde.service'
 import {MatButtonModule} from '@angular/material/button';
-//import { PostComponent } from './post.component';
-import {ReactiveFormsModule} from '@angular/forms'
+import { PostComponent } from './post.component';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent
-  //  PostComponent
+    AppComponent,
+   PostComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import {ReactiveFormsModule} from '@angular/forms'
     MatCheckboxModule
 
   ],
-  providers: [],
+  providers: [BiddeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

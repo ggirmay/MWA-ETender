@@ -1,7 +1,9 @@
 const express=require('express');
 const router=express.Router();
 const apiController=require('../controllers/apiController')
+const biddeController=require('../controllers/biddeController')
 const mongoose=require('mongoose')
+
 //mongodb://localhost:27017/eventsdb
 const option={useUnifiedTopology: true, useNewUrlParser: true }
 // const url = 'mongodb://localhost:27017/etender';
@@ -28,17 +30,21 @@ mongoose.connect(url, option, (err)=>{
 router.get('/', (req,res)=>{
     console.log("conected");
     
-    const cat=mongoose.model('Cat', {name:String});
+    // const cat=mongoose.model('Cat', {name:String});
 
-    const kitty= new cat({name:'kk'});
-    kitty.save().then(()=>console.log('meow'));
+    // const kitty= new cat({name:'kk'});
+    // kitty.save().then(()=>console.log('meow'));
     //Users.findOneAndUpdate({name: req.user.name}, {$push: {friends: friend}});
     // cat.findOneAndUpdate({name:'kk'}, {$push: {type:'big'}}).then(()=>console.log('inserted')
     // )
     
 });
 
-// router.post('/', parse_json, studentController.addStudent);
+router.post('/register', (req,res)=>{
 
-// router.delete('/:id', parse_json, studentController.deleteStudent);
+});
+
+router.post('/bidde', biddeController.createbidde);
+
+
 module.exports=router;
