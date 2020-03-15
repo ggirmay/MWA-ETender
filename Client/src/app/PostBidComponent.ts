@@ -5,7 +5,7 @@ import { BidService } from './BidService';
 @Component({
   selector: 'app-bid',
   template: `
-
+<mat-card>
   <form [formGroup]="postGroup" (ngSubmit)="onSubmit()">
   <mat-form-field >
     <mat-label>Bid Name </mat-label>
@@ -25,14 +25,6 @@ import { BidService } from './BidService';
     <mat-label>Closing Date</mat-label>
     <input matInput placeholder="Closing Date" type="date"  min="2020-01-01"
      max="2020-07-07" formControlName="closingDate"/>
-
-
-    <input type="date" id="start" name="trip-start"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31">
-
-
-
   </mat-form-field><br/>
   <mat-form-field >
     <mat-label>Item Type</mat-label>
@@ -46,8 +38,9 @@ import { BidService } from './BidService';
   <button mat-raised-button color="primary">Save</button>
 
 </form>
+</mat-card>
   `,
-  styles: []
+styleUrls:['./PostBidComponent.css']
 })
 export class PostBidComponent implements OnInit {
   postGroup: FormGroup;

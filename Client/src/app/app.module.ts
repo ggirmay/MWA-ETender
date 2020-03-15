@@ -43,7 +43,7 @@ import { RegService } from './reg.service';
     MatCheckboxModule
 
   ],
-  providers: [BiddeService, BidService,RegService],
+  providers: [BiddeService, BidService, RegService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
