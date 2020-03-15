@@ -11,4 +11,4 @@ const postSchema=new Schema({
     catagory:[String]
 })
 
-module.exports=mongoose.model('client', postSchema, 'clients')
+module.exports=mongoose.model('client', postSchema)

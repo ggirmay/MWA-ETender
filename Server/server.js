@@ -9,6 +9,7 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'etender';
 let db;
 
+
 app.use(bodyParser.text());
 app.use(cors());
 
