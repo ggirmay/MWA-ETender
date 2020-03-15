@@ -9,18 +9,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-//import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import{BiddeService} from './bidde.service'
 import {MatButtonModule} from '@angular/material/button';
 import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RegisterComponent } from './register.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-   PostComponent
+   PostComponent,
+   RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatSliderModule,
     MatInputModule,
     MatGridListModule,
-    //MatCardModule,
+    MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
     
