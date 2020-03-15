@@ -1,19 +1,23 @@
-<h1>ETender front end </h1>
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<mat-card>
+  <form>
+    <mat-form-field>
+      <textarea name="message1" [(ngModel)]="message1" matInput placeholder="Company Name"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea name="message2" [(ngModel)]="message2" matInput placeholder="Email"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea name="message3" [(ngModel)]="message3" matInput placeholder="Address"></textarea>
+    </mat-form-field>
+  </form>
+  <mat-card-actions> 
+    <button (click)="post()" mat-button>Post</button>
+      </mat-card-actions>
+</mat-card>
 
-<form>
-  <mat-form-field >
-    <mat-label>Company Name mine </mat-label>
-    <input matInput placeholder="MIU" value="MUM">
-  </mat-form-field><br><br>
-
-  <mat-form-field >
-    <mat-label>Description</mat-label>
-    <textarea matInput placeholder="potato potato tomato"></textarea>
-  </mat-form-field>
-
-  <mat-checkbox>Check me!</mat-checkbox>
-</form>
-<app-post></app-post>
-
-<router-outlet></router-outlet>
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list> -->

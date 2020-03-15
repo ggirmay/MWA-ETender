@@ -1,13 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css']
-// })
-// export class AppComponent {
-//   title = 'etender';
-// }
 
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -15,16 +5,17 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: []
 })
 export class AppComponent {
-  message = '';
-
-  constructor(private http: HttpClient) {}
+  message1 = '';
+  message2 = '';
+  message3 = '';
+  constructor(public http: HttpClient) {}
 
   post() {
-    console.log('post' , this.message);
-    this.http.post('http://localhost:3000/api/message', this.message).toPromise();
+    console.log('post' , {a: this.message1, b: this.message2, c: this.message3});
+    this.http.post('http://localhost:3000/api/message', {a: this.message1, b: this.message2, c: this.message3}).toPromise();
   }
 }
 

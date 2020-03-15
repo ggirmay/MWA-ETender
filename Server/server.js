@@ -18,6 +18,9 @@ app.use(cors());
 //     res.status(200).send();
 // })
 
+
+// MongoClient.connect(url, function (err, client) {
+
 app.use('/', apiRouter)
 
 // MongoClient.connect(url, function (err, client) {
