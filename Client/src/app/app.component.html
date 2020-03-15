@@ -1,10 +1,23 @@
 <mat-card>
   <form>
     <mat-form-field>
-      <textarea name="message" [(ngModel)]="message" matInput placeholder="Message Body"></textarea>
+      <textarea name="message1" [(ngModel)]="message1" matInput placeholder="Company Name"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea name="message2" [(ngModel)]="message2" matInput placeholder="Email"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea name="message3" [(ngModel)]="message3" matInput placeholder="Address"></textarea>
     </mat-form-field>
   </form>
   <mat-card-actions> 
     <button (click)="post()" mat-button>Post</button>
       </mat-card-actions>
 </mat-card>
+
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list> -->

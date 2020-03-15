@@ -6,7 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const port = 3000;
 const url = 'mongodb://localhost:27017';
-const dbName = 'message';
+const dbName = 'etender';
 let db;
 
 app.use(bodyParser.text());
@@ -14,7 +14,8 @@ app.use(cors());
 
 app.post('/api/message', (req, res) => {
     console.log(req.body);
-    db.collection('message').insertOne({'msg': req.body});
+    m1= req.body.
+    db.collection('etender').insertOne({'msg': req.body});
 
     res.status(200).send();
 })
