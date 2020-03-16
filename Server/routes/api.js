@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+require('dotenv').config();
 const apiController=require('../controllers/apiController')
 const biddeController=require('../controllers/biddeController')
 const mongoose=require('mongoose')
@@ -7,9 +8,14 @@ const mongoose=require('mongoose')
 //mongodb://localhost:27017/eventsdb
 const option={useUnifiedTopology: true, useNewUrlParser: true }
 // const url = 'mongodb://localhost:27017/etender';
-const url='mongodb+srv://bruk:123abc@cluster0-n6nr7.mongodb.net/test?retryWrites=true&w=majority'
+// const url='mongodb+srv://bruk:123abc@cluster0-n6nr7.mongodb.net/test?retryWrites=true&w=majority'
+
+const username=process.env.DB_USERNAME
+const password=process.env.DB_PASSWORD
+const url=`mongodb+srv://${username}:${password}@cluster0-n6nr7.mongodb.net/test?retryWrites=true&w=majority`
 
 mongoose.connect(url, option, (err)=>{
+    
     if (err){
         console.log('Error!' + er);
     }else{
