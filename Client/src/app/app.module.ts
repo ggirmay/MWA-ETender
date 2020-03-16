@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
+// import {MatExpansionModule} from '@angular/material/expansion';
 import { RegisterComponent } from './register.component'
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
@@ -24,7 +25,7 @@ import { RegService } from './reg.service';
   declarations: [
     AppComponent,
    PostComponent,
-   RegisterComponent,PostBidComponent
+   RegisterComponent, PostBidComponent
   ],
   imports: [
     BrowserModule,
