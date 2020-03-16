@@ -2,16 +2,16 @@ const mongoose= require('mongoose');
 
 const Schema=mongoose.Schema;
 
-const clientSchema=new Schema({ 
+const bidderSchema=new Schema({ 
     cname:String,
     lnumber:Number,
-    catagory:String,
+    catagory:[String],
     email: String,
     location:String,
     uname:String, 
     pwd : String,
-    biddePlaced:{type:Array},
-    biddeRecived:{type:Array}
+    biddeApplied:{type:Array},
+    biddePosted:{type:Array}
     // componeyName:{type:String, required:true },
     // location:{type:String, required:true },
     // email:{type:email, required:true },
@@ -22,6 +22,6 @@ const clientSchema=new Schema({
 
 })
 
-module.exports=mongoose.model('Client', clientSchema)
+module.exports=mongoose.model('Bidder', bidderSchema)
 //module.exports=mongoose.model('client', clientSchema, 'clients')
 
