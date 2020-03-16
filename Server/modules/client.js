@@ -9,7 +9,7 @@ const clientSchema=new Schema({
     email: String,
     location:String,
     uname:String, 
-    pwd : password
+    pwd : String
     // componeyName:{type:String, required:true },
     // location:{type:String, required:true },
     // email:{type:email, required:true },

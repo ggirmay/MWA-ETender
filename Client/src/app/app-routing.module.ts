@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PostComponent } from './post.component';
 import { RegisterComponent } from './register.component';
-
+import { LoginComponent } from './login.component';
 
 const routes: Routes = [  
 { path: '', component: AppComponent},
 { path:'bidde', component: PostComponent },
 { path:'register', component: RegisterComponent },
+{ path:'login', component: LoginComponent },
 
 ];
 
