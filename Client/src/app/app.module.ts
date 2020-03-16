@@ -20,12 +20,16 @@ import { RegisterComponent } from './register.component'
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
 import { RegService } from './reg.service';
+import { LoginService } from './login.service';
+import { LoginComponent } from './login.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
-   RegisterComponent, PostBidComponent
+
+   RegisterComponent,PostBidComponent,LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,7 @@ import { RegService } from './reg.service';
     MatCheckboxModule
 
   ],
-  providers: [BiddeService, BidService, RegService],
+  providers: [BiddeService, BidService, RegService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
