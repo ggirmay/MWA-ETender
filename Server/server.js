@@ -9,7 +9,7 @@ const port = 3000;
 // const url = 'mongodb://localhost:27017';
 // const dbName = 'etender';
 // let db;
-
+const bidRouter=require('./routes/bidApplyApi');
 
 app.use(bodyParser.text());
 app.use(bodyParser.json());
@@ -25,6 +25,9 @@ app.use(cors());
 // MongoClient.connect(url, function (err, client) {
 
 app.use('/', apiRouter)
+
+
+app.use('/postBid',bidRouter);
 
 // MongoClient.connect(url, function (err, client) {
 
