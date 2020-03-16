@@ -3,6 +3,8 @@ const router=express.Router();
 require('dotenv').config();
 const apiController=require('../controllers/apiController')
 const biddeController=require('../controllers/biddeController')
+const regController=require('../controllers/regController')
+const loginController=require('../controllers/loginController')
 const mongoose=require('mongoose')
 
 //mongodb://localhost:27017/eventsdb
@@ -46,11 +48,15 @@ router.get('/', (req,res)=>{
     
 });
 
-router.post('/register', (req,res)=>{
+// router.post('/register', (req,res)=>{
 
-});
+// });
+
+router.post('/register', regController.createUser);
 
 router.post('/bidde', biddeController.createbidde);
+
+router.post('/login', loginController.checkUser);
 
 
 module.exports=router;

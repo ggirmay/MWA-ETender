@@ -14,22 +14,16 @@ const BidSchema = new Schema({
     closingDate: {
         type: Date, required: true,
     },
-    document_url: {
-        type: String, trime: true, required: true,
+    // document_url: {
+    //     type: String, trime: true, required: true,
+    // },
+    Specification: {
+        type: String,
     },
     client_id: {
         type: Schema.Types.ObjectId, required: true, ref: 'client',
     },
-    item:{itemName: {
-        type: String, required: true,
-    },
-    quantity: {
-        type: Number, required: true,
-    },
-    specification: {
-        type: String,
-    },
-    catagory: [String]
+    item_id:{type: Schema.Types.ObjectId, required: true, ref: 'bidde',
 }
 });
 

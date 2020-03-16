@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "etender"
+  "defaultProject": "etender",
+  "cli": {
+    "analytics": "ee9b5256-0aa7-4a36-a792-24d4010f979f"
+  }
 }
