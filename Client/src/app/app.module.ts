@@ -16,6 +16,7 @@ import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // import {MatExpansionModule} from '@angular/material/expansion';
+
 import { RegisterComponent } from './register.component';
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
@@ -46,7 +47,7 @@ import {TokenInterceptorService} from './token-interceptor.service'
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-    
+
     //  MatExpansionModule,
 
     FormsModule,
