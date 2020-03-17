@@ -23,6 +23,7 @@ import { BidService } from './BidService';
 import { RegService } from './reg.service';
 import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
+import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
 
 
@@ -45,13 +46,14 @@ import { BidListComponent } from './BidListComponent';
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-      // MatExpansionModule,
+
+    //  MatExpansionModule,
 
     FormsModule,
     MatCheckboxModule
 
   ],
-  providers: [BiddeService, BidService, RegService, LoginService],
+  providers: [BiddeService, BidService, RegService, LoginService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

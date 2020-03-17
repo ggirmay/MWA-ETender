@@ -9,9 +9,14 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   logClient(user){
-    console.log('in create bidde');
+    console.log('in client login');
     
     return this.http.post('http://localhost:3000/login/', user);
     
+  }
+
+  loggedIn(){
+
+    return !!localStorage.getItem('token')
   }
 }

@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+//const jwt = require('jwt')
 require('dotenv').config();
 const apiController=require('../controllers/apiController')
 const biddeController=require('../controllers/biddeController')
@@ -21,9 +22,10 @@ mongoose.connect(url, option, (err)=>{
     
     if (err){
         console.log('Error!' + err);
-    }else{
-        console.log('connected to mongodb bbbb');
         
+    }else{
+        console.log('connected to mongodb');
+       
     }
 })
 // mongoose.connect(url, {
