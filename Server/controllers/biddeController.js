@@ -36,7 +36,6 @@ module.exports.createbidde=async function(req, res, next) {
         
     // })
 
-
     bidderModel.updateMany({catagory:'catagory2'},{$push:{biddePosted:bidde}},(err, data)=>{
         console.log('updated bider= '+data);
     })

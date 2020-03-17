@@ -15,7 +15,7 @@ template: `
   </mat-form-field><br>
   <mat-form-field >
   <mat-label>Password</mat-label>
-    <input matInput placeholder="pwd" type="password" formControlName="password"/>
+    <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
   </mat-form-field><br/>
   <button>login</button>
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private _loginService:LoginService, private _router : Router) { 
     this.regForm=fb.group({
       'uname':['', Validators.required],
-      'password':['', Validators.required]
+      'pwd':['', Validators.required]
     })
     
   }
@@ -38,11 +38,13 @@ export class LoginComponent implements OnInit {
     console.log('data of form= '+JSON.stringify(formValue));
     this._loginService.logClient(formValue)
     .subscribe(
-      res=> {console.log(res),
+      res=> {console.log(res)
+        localStorage.setItem('token', res.token); 
       this._router.navigate(['/bidde'])
       },
       err=> console.log(err))   
   }
+
   ngOnInit(): void {
   }
 }

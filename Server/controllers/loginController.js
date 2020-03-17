@@ -1,27 +1,23 @@
 const clientModel=require('../modules/login')
-//const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 module.exports.checkUser=async function(req, res, next) {
     
     let user = req.body
-    clientModel.findOne({uname: user.uname}, (err, user) => {
+    clientModel.findOne({uname: user.uname}, (err, dbuser) => {
       if (err) {
         console.log(err)    
       } else {
-        if (!user) {
-          res.status(401).send('Invalid user')
+        console.log(dbuser.uname)   
+        console.log(dbuser.pwd)   
+        if (!dbuser || dbuser.pwd !== user.pwd) {
+          res.status(401).send('Invalid userName or Password')
           console.log('Invalid user')
-        } else 
-        if ( user.password !== user.pwd) {
-            console.log('Invalid Password')
-          res.status(401).send('Invalid Password')
         } else {
-            res.status(200).send(user)
-           // let payload = {subject: user._id }
-         //let token = jwt.sign(payload, 'girmay')
-        // res.status(200).send({token})
-          //  console.log('Success login with token ' + token);
-         // res.status(200).send(user)
+           let payload = {subject: user._id }
+           let token = jwt.sign(payload, 'secreatkey')
+           res.status(200).send({token})
+           console.log('Success login with token ' + token);
         }
       }
     })

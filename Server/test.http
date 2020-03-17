@@ -2,14 +2,16 @@ GET http://localhost:3000/bidder
 
 ###
 
-POST http://localhost:3000/bidde/
+POST http://localhost:3000/register/
 Content-Type: application/json
 
 {
-    "itemName":"item1",
-    "amount":23,
-    "catagory":"Wood work",
-    "deadline":"12/12/12"
+    "cname":"great componey",
+    "lnumber":12,
+    "email":"a@a.com",
+    "location":"Eritrea",
+    "uname":"abc",
+    "pwd":"abc"
 }
 
 ###
