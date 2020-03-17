@@ -10,18 +10,20 @@ template: `
   <h3>Registering a Bidder</h3>
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
 
-  <mat-form-field>
+<mat-form-field>
   <mat-label> Select an option </mat-label>
-  <mat-radio-button value="client">Client</mat-radio-button>
-  <mat-radio-button value="bidder">Bidder</mat-radio-button>
+  <mat-select[(value)] = "selectedValue multiple "
+  
+  <mat-option value="art">Art</mat-option>
+  <mat-option value="entertainment">Entertainment</mat-option>
+  <mat-option value="music">Music</mat-option>
+  <mat-option value="IT">IT</mat-option>
+  </mat-select> 
   </mat-form-field><br/>
 
 
 
-  <mat-form-field >
-    <mat-label>Company Name </mat-label>
-    <input matInput placeholder="cname" type="text" formControlName="cname">
-  </mat-form-field><br>
+  
 
   
 
@@ -60,40 +62,18 @@ template: `
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
-  catForm: FormGroup;
+  //catForm: FormGroup;
   constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) { 
     this.regForm=fb.group({
       'cname':['', Validators.required],
       'lnumber':['', Validators.required],
-     // 'catagory':['', Validators.required],
+      'catagory':['', Validators.required],
       'email':['', Validators.required],
       'location':[''],
       'uname':['', Validators.required],
       'pwd':['', Validators.required]
     })
-    this.catForm=fb.group({
-      // 'cname':['', Validators.required],
-      // 'lnumber':['', Validators.required],
-      'catagory':['', Validators.required]
-      // 'email':['', Validators.required],
-      // 'location':[''],
-      // 'uname':['', Validators.required],
-      // 'pwd':['', Validators.required]
-    })
-    // this.postForm.valueChanges.subscribe(
-    //   (data: any) => console.log(data)
-    // );
-  }
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
-
-  onSubmit(){
-    const formValue=this.regForm.value;
-    // const data={
-    //   'itemName':this.postForm.value.itemName,
-    //   'amount':this.postForm.value.amount,
-    //   'catagory':this.postForm.value.catagory,
+        //   'catagory':this.postForm.value.catagory,
     //   'deadline':this.postForm.value.deadline
     // }
     console.log('data of form= '+JSON.stringify(formValue));
@@ -106,6 +86,9 @@ export class RegisterComponent implements OnInit {
       err=> console.log(err) 
   )
     }
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
 
 //   template: `
 //   <mat-card>
@@ -134,8 +117,8 @@ export class RegisterComponent implements OnInit {
 //   message3 = '';
 //   constructor(public http: HttpClient) { }
 
-//   ngOnInit(): void {
-//   }
+//    ngOnInit(): void {
+// }
 
 //   post() {
 //     console.log('post' , {a: this.message1, b: this.message2, c: this.message3});
