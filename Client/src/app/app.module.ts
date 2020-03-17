@@ -27,14 +27,15 @@ import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
 import {TokenInterceptorService} from './token-interceptor.service'
 import {MatRadioModule} from '@angular/material/radio';
-
+import { HomeComponent } from './home/home.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
-
-   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent
+    HomeComponent,
+   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent//, HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +53,8 @@ import {MatRadioModule} from '@angular/material/radio';
     //  MatExpansionModule,
 
     FormsModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [BiddeService, BidService, RegService, LoginService, LoginGuard, TokenInterceptorService,
   {

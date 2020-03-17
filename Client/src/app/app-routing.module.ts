@@ -7,9 +7,10 @@ import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
 import { PostBidComponent } from './PostBidComponent';
 import { BidListComponent } from './BidListComponent';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-{ path: '', component: AppComponent},
+
 { path:'bidde', component: PostComponent, canActivate :[LoginGuard] },
 { path:'register', component: RegisterComponent },
 { path:'login', component: LoginComponent },

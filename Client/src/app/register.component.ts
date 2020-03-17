@@ -53,7 +53,10 @@ template: `
 
 </form>
   `,
-  styles: []
+  styles: ['form, h3 {text-align: center; width:80%}']
+ 
+  
+  
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;

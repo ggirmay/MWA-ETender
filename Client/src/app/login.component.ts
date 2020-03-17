@@ -21,7 +21,7 @@ template: `
 
 </form>
   `,
-  styles: []
+  styles: ['form, h3 {text-align: center; width:100%}']
 })
 export class LoginComponent implements OnInit {
   regForm: FormGroup;
