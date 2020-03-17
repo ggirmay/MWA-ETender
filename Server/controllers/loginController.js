@@ -1,4 +1,5 @@
 const clientModel=require('../modules/login')
+//const jwt = require('jsonwebtoken')
 
 module.exports.checkUser=async function(req, res, next) {
     
@@ -15,7 +16,12 @@ module.exports.checkUser=async function(req, res, next) {
             console.log('Invalid Password')
           res.status(401).send('Invalid Password')
         } else {
-          res.status(200).send(user)
+            res.status(200).send(user)
+           // let payload = {subject: user._id }
+         //let token = jwt.sign(payload, 'girmay')
+        // res.status(200).send({token})
+          //  console.log('Success login with token ' + token);
+         // res.status(200).send(user)
         }
       }
     })

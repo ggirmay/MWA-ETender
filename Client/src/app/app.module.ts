@@ -22,6 +22,7 @@ import { BidService } from './BidService';
 import { RegService } from './reg.service';
 import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
+import { LoginGuard } from './login.guard';
 
 
 @NgModule({
@@ -43,12 +44,12 @@ import { LoginComponent } from './login.component';
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-
+    
     FormsModule,
     MatCheckboxModule
 
   ],
-  providers: [BiddeService, BidService, RegService, LoginService],
+  providers: [BiddeService, BidService, RegService, LoginService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

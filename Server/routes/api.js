@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+//const jwt = require('jwt')
 require('dotenv').config();
 const apiController=require('../controllers/apiController')
 const biddeController=require('../controllers/biddeController')
@@ -19,10 +20,11 @@ const url=`mongodb+srv://${username}:${password}@cluster0-n6nr7.mongodb.net/test
 mongoose.connect(url, option, (err)=>{
     
     if (err){
-        console.log('Error!' + er);
+        console.log('Error!' + err);
+        
     }else{
         console.log('connected to mongodb');
-        
+       
     }
 })
 // mongoose.connect(url, {

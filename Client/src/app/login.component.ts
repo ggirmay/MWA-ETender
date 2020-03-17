@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ template: `
 })
 export class LoginComponent implements OnInit {
   regForm: FormGroup;
-  constructor(private fb: FormBuilder, private _loginService:LoginService) { 
+  constructor(private fb: FormBuilder, private _loginService:LoginService, private _router : Router) { 
     this.regForm=fb.group({
       'uname':['', Validators.required],
       'password':['', Validators.required]
@@ -37,7 +38,9 @@ export class LoginComponent implements OnInit {
     console.log('data of form= '+JSON.stringify(formValue));
     this._loginService.logClient(formValue)
     .subscribe(
-      res=> console.log(res),
+      res=> {console.log(res),
+      this._router.navigate(['/bidde'])
+      },
       err=> console.log(err))   
   }
   ngOnInit(): void {

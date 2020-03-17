@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegService } from './reg.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -45,7 +46,7 @@ template: `
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
-  constructor(private fb: FormBuilder, private _regService:RegService) { 
+  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) { 
     this.regForm=fb.group({
       'cname':['', Validators.required],
       'lnumber':['', Validators.required],
@@ -71,7 +72,10 @@ export class RegisterComponent implements OnInit {
     console.log('data of form= '+JSON.stringify(formValue));
     this._regService.regClient(formValue)
     .subscribe(
-      res=> console.log(res),
+      res=> //{
+        console.log(res),
+       //localStorage.setItem('token', res.token)
+     // },
       err=> console.log(err))   
   }
   ngOnInit(): void {
