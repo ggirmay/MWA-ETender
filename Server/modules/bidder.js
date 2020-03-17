@@ -5,7 +5,9 @@ const Schema=mongoose.Schema;
 const bidderSchema=new Schema({ 
     cname:String,
     lnumber:Number,
-    catagory:[String],
+    catagory:{
+     type:  [String],trim:true,
+    },
     email: String,
     location:String,
     uname:String, 

@@ -4,7 +4,8 @@ const Schema=mongoose.Schema;
 
 const biddeSchema=new Schema({
     itemName:String,
-    amount:Number,
+    amount:{
+        type:Number,trim:true},
     catagory:String,
     openingDate: {type: Date, required: true, default: Date.now(),},
     closingDate:Date,   

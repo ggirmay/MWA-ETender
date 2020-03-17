@@ -27,7 +27,8 @@ app.use(cors());
 app.use('/', apiRouter)
 
 
-app.use('/postBid',bidRouter);
+// app.use('/postBid',apiRouter);
+app.use('/',apiRouter);
 
 // MongoClient.connect(url, function (err, client) {
 
