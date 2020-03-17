@@ -10,19 +10,20 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {BiddeService} from './bidde.service'
+import {BiddeService} from './bidde.service';
 import {MatButtonModule} from '@angular/material/button';
 import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // import {MatExpansionModule} from '@angular/material/expansion';
-import { RegisterComponent } from './register.component'
+import { RegisterComponent } from './register.component';
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
 import { RegService } from './reg.service';
 import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
+import { BidListComponent } from './BidListComponent';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { LoginGuard } from './login.guard';
     AppComponent,
    PostComponent,
 
-   RegisterComponent,PostBidComponent,LoginComponent
+   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,8 @@ import { LoginGuard } from './login.guard';
     MatButtonModule,
     ReactiveFormsModule,
     
+    //  MatExpansionModule,
+
     FormsModule,
     MatCheckboxModule
 

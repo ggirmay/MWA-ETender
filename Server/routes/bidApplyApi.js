@@ -18,7 +18,8 @@ const url='mongodb+srv://Mulie:Mulieman@cluster0-zk8dn.mongodb.net/test?retryWri
 // })
 
 
-router.post('/postBid', bidController.postBid);
+// router.post('/postBid', bidController.postBid);
+// router.get('/',bidController.getBidds);
 
 
 module.exports=router;

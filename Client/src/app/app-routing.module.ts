@@ -5,13 +5,16 @@ import { PostComponent } from './post.component';
 import { RegisterComponent } from './register.component';
 import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
+import { PostBidComponent } from './PostBidComponent';
+import { BidListComponent } from './BidListComponent';
 
-const routes: Routes = [  
+const routes: Routes = [
 { path: '', component: AppComponent},
 { path:'bidde', component: PostComponent},  //canActivate :[LoginGuard] },
 { path:'register', component: RegisterComponent },
 { path:'login', component: LoginComponent },
-
+{path:'postBid', component:PostBidComponent},
+{path:'bidder',component:BidListComponent}
 ];
 
 

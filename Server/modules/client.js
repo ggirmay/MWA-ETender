@@ -9,8 +9,9 @@ const clientSchema=new Schema({
     email: String,
     location:String,
     uname:String, 
-    pwd :String,
-    //biddePlaced:{type:Array}
+    pwd : String,
+    biddePlaced:{type:Array},
+    biddeRecived:{type:Array}
     // componeyName:{type:String, required:true },
     // location:{type:String, required:true },
     // email:{type:email, required:true },

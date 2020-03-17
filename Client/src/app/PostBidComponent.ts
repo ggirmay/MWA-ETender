@@ -7,19 +7,16 @@ import { BidService } from './BidService';
   template: `
 <mat-card>
   <form [formGroup]="postGroup" (ngSubmit)="onSubmit()">
-
   <mat-form-field >
     <mat-label>Applying Date</mat-label>
     <input matInput placeholder="applying Date" type="date"  min="2020-01-01"
      max="2020-07-07" formControlName="applyingDate"/>
   </mat-form-field><br/>
-
   <mat-form-field >
     <mat-label>Amount</mat-label>
     <input matInput placeholder="optional" type="text" formControlName="amount"/>
   </mat-form-field><br/>
   <button mat-raised-button color="primary">Save</button>
-
 </form>
 </mat-card>
   `,

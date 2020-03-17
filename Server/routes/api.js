@@ -7,6 +7,7 @@ const biddeController=require('../controllers/biddeController')
 const regController=require('../controllers/regController')
 const loginController=require('../controllers/loginController')
 const mongoose=require('mongoose')
+const bidController=require('../controllers/BidApplyController')
 
 //mongodb://localhost:27017/eventsdb
 const option={useUnifiedTopology: true, useNewUrlParser: true }
@@ -59,6 +60,6 @@ router.post('/register', regController.createUser);
 router.post('/bidde', biddeController.createbidde);
 
 router.post('/login', loginController.checkUser);
-
+router.get('/bidder',bidController.getBidds);
 
 module.exports=router;

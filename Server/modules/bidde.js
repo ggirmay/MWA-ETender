@@ -4,10 +4,13 @@ const Schema=mongoose.Schema;
 
 const biddeSchema=new Schema({
     itemName:String,
-    amount:Number,
+    amount:{
+        type:Number,trim:true},
     catagory:String,
-    deadline:Date,   
-    // componey:{type:mongoose.Types.ObjectId, ref:'client' },
+    openingDate: {type: Date, required: true, default: Date.now(),},
+    closingDate:Date,   
+    Specification: { type: String},
+    componey:{type:mongoose.Schema.Types.ObjectId, ref:'Client' }
 })
 
 module.exports=mongoose.model('bidde', biddeSchema)
