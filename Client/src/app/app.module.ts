@@ -25,15 +25,16 @@ import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
-import {TokenInterceptorService} from './token-interceptor.service'
+import {TokenInterceptorService} from './token-interceptor.service';
+import { HomeComponent } from './home/home.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
-
-   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent
+    HomeComponent,
+   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
