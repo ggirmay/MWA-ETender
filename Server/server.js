@@ -28,7 +28,6 @@ app.use('/', apiRouter)
 
 
 // app.use('/postBid',apiRouter);
-app.use('/',apiRouter);
 
 // MongoClient.connect(url, function (err, client) {
 

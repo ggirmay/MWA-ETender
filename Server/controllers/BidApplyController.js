@@ -16,15 +16,13 @@ module.exports.postBid=async function(req, res, next) {
 }
 module.exports.getBidds= async function (req, res, next) {
     const bidder = new bidderModel();
-    
-    bidderModel.findOne(
-         { "biddePosted.catagory": "catagory1"},
-         (err, success)=> {
-                    if(err)
-                        console.log("err= "+err);
-                     else
-                        res.json(success);            
-                }
-      );
-    
+    // SampleModel.find( { dates : { $elemMatch: {  date : { $gte: 'DATE_VALUE' } } } } )
+    const x=bidderModel.find({_id:'5e6faad4e6461106b09ba9e9'}).select({'biddePosted':1, '_id':1});
+    x.exec(function (err, someValue) {
+        if (err) return next(err);
+        res.send(someValue);
+    });
+
 }
+// var query = dbSchemas.SomeValue.find({}).select({ "name": 1, "_id": 0});
+// biddePosted: { $elemMatch: { catagory: "catagory1"}}
