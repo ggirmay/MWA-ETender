@@ -9,10 +9,21 @@ import { Router } from '@angular/router';
 template: `
   <h3>Registering a Bidder</h3>
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+  <mat-label> Select an option </mat-label>
+  <mat-radio-button value="client">Client</mat-radio-button>
+  <mat-radio-button value="bidder">Bidder</mat-radio-button>
+  </mat-form-field><br/>
+
+
+
   <mat-form-field >
     <mat-label>Company Name </mat-label>
     <input matInput placeholder="cname" type="text" formControlName="cname">
   </mat-form-field><br>
+
+  
 
   <mat-form-field >
     <mat-label>Lisence Number</mat-label>
@@ -46,19 +57,32 @@ template: `
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
+  catForm: FormGroup;
   constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) { 
     this.regForm=fb.group({
       'cname':['', Validators.required],
       'lnumber':['', Validators.required],
-      'catagory':['', Validators.required],
+     // 'catagory':['', Validators.required],
       'email':['', Validators.required],
       'location':[''],
       'uname':['', Validators.required],
       'pwd':['', Validators.required]
     })
+    this.catForm=fb.group({
+      // 'cname':['', Validators.required],
+      // 'lnumber':['', Validators.required],
+      'catagory':['', Validators.required]
+      // 'email':['', Validators.required],
+      // 'location':[''],
+      // 'uname':['', Validators.required],
+      // 'pwd':['', Validators.required]
+    })
     // this.postForm.valueChanges.subscribe(
     //   (data: any) => console.log(data)
     // );
+  }
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
   }
 
   onSubmit(){
@@ -73,13 +97,13 @@ export class RegisterComponent implements OnInit {
     this._regService.regClient(formValue)
     .subscribe(
       res=> {
-        console.log(res);
-       localStorage.setItem('token', res.token);
+        console.log(res),
+       localStorage.setItem('token', res.token)
       },
-      err=> console.log(err))   
-  }
-  ngOnInit(): void {
-  }
+      err=> console.log(err) 
+  )
+    }
+
 //   template: `
 //   <mat-card>
 //   <form>

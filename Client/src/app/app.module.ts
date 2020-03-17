@@ -26,6 +26,7 @@ import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
 import {TokenInterceptorService} from './token-interceptor.service'
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import {TokenInterceptorService} from './token-interceptor.service'
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-
+    MatRadioModule,
     //  MatExpansionModule,
 
     FormsModule,
