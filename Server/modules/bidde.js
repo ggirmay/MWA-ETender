@@ -10,7 +10,7 @@ const biddeSchema=new Schema({
     openingDate: {type: Date, required: true, default: Date.now(),},
     closingDate:Date,   
     Specification: { type: String},
-    componey:{type:mongoose.Types.ObjectId, ref:'client' }
+    componey:{type:mongoose.Schema.Types.ObjectId, ref:'Client' }
 })
 
 module.exports=mongoose.model('bidde', biddeSchema)
