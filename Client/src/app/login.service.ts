@@ -5,13 +5,16 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
+  getToken() {
+    return localStorage.getItem('token');
+  }
 
   constructor(private http: HttpClient) { }
 
   logClient(user){
     console.log('in client login');
     
-    return this.http.post('http://localhost:3000/login/', user);
+    return this.http.post<any>('http://localhost:3000/login/', user);
     
   }
 

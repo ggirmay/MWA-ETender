@@ -9,9 +9,9 @@ export class RegService {
   constructor(private http: HttpClient) { }
 
   regClient(user){
-    console.log('in create bidde');
+    console.log('in reg client');
     
-    return this.http.post('http://localhost:3000/register/', user);
+    return this.http.post<any>('http://localhost:3000/register/', user);
     
   }
 }

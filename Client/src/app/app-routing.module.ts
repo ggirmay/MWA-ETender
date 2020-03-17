@@ -10,7 +10,7 @@ import { BidListComponent } from './BidListComponent';
 
 const routes: Routes = [
 { path: '', component: AppComponent},
-{ path:'bidde', component: PostComponent},  //canActivate :[LoginGuard] },
+{ path:'bidde', component: PostComponent, canActivate :[LoginGuard] },
 { path:'register', component: RegisterComponent },
 { path:'login', component: LoginComponent },
 {path:'postBid', component:PostBidComponent},

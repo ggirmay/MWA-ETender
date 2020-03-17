@@ -72,10 +72,10 @@ export class RegisterComponent implements OnInit {
     console.log('data of form= '+JSON.stringify(formValue));
     this._regService.regClient(formValue)
     .subscribe(
-      res=> //{
-        console.log(res),
-       //localStorage.setItem('token', res.token)
-     // },
+      res=> {
+        console.log(res);
+       localStorage.setItem('token', res.token);
+      },
       err=> console.log(err))   
   }
   ngOnInit(): void {

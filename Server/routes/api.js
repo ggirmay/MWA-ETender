@@ -54,12 +54,28 @@ router.get('/', (req,res)=>{
 // router.post('/register', (req,res)=>{
 
 // });
-
+function verifyToken(req, res, next){
+    if (!req.headers.authorization){
+      return res.status(401).send('Unauthorized request')
+    }
+    let token= req.headers.authorization.split(' ')[1]
+    console.log('token in the app= '+ token)
+    if (token==='null'){
+      return res.status(401).send('Unauthorized request')
+    }
+    let payload=jwt.verify(token, 'secretkey')
+    if(!payload){
+      return res.status(401).send('Unauthorized request')
+    }
+    req.userId=payload.subject
+    next()
+  }
+  
 router.post('/register', regController.createUser);
 
-router.post('/bidde', biddeController.createbidde);
+router.post('/bidde', verifyToken ,biddeController.createbidde);
 
 router.post('/login', loginController.checkUser);
 router.get('/bidder',bidController.getBidds);
 
-module.exports=router;
+module.exports=router; 

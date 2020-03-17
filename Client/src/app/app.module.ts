@@ -7,7 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {BiddeService} from './bidde.service';
@@ -16,6 +16,7 @@ import { PostComponent } from './post.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // import {MatExpansionModule} from '@angular/material/expansion';
+
 import { RegisterComponent } from './register.component';
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
@@ -24,6 +25,7 @@ import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
+import {TokenInterceptorService} from './token-interceptor.service'
 
 
 @NgModule({
@@ -45,14 +47,19 @@ import { BidListComponent } from './BidListComponent';
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-    
+
     //  MatExpansionModule,
 
     FormsModule,
     MatCheckboxModule
 
   ],
-  providers: [BiddeService, BidService, RegService, LoginService, LoginGuard],
+  providers: [BiddeService, BidService, RegService, LoginService, LoginGuard, TokenInterceptorService,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

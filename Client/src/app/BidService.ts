@@ -14,7 +14,10 @@ export class BidService  {
    return this.http.post('http://localhost:3000/postBid', bid);
 
  }
- getListOfBids(): Observable<IBidModel[]> {
-   return this.http.get<IBidModel[]>('http://localhost:3000/bidder');
+ getListOfBids() {
+   return this.http.get('http://localhost:3000/bidder');
  }
+ SavefBids(data) {
+  return this.http.post('http://localhost:3000/applyBid',data);
+}
 }
