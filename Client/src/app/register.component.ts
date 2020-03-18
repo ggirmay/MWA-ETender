@@ -43,13 +43,13 @@ template: `
 </form>
   `,
   styles: ['form, h3 {text-align: center; width:80%}']
- 
-  
-  
+
+
+
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
-  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) { 
+  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) {
     this.regForm=fb.group({
       'cname':['', Validators.required],
       'lnumber':['', Validators.required],
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
         console.log(res);
        localStorage.setItem('token', res.token);
       },
-      err=> console.log(err))   
+      err=> console.log(err))
   }
   ngOnInit(): void {
   }
@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit {
 //     <textarea name="message3" [(ngModel)]="message3" matInput placeholder="Address"></textarea>
 //   </mat-form-field>
 // </form>
-// <mat-card-actions> 
+// <mat-card-actions>
 //   <button (click)="post()" mat-button>Post</button>
 //     </mat-card-actions>
 // </mat-card>
