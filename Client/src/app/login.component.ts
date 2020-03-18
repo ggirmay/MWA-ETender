@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router'
+import * as decode from 'jwt-decode';
+// import {jwt_decode} from 'jwt-decode'
 
 @Component({
   selector: 'app-login',
@@ -38,9 +40,13 @@ export class LoginComponent implements OnInit {
     console.log('data of form= '+JSON.stringify(formValue));
     this._loginService.logClient(formValue)
     .subscribe(
-      res=> {console.log(res)
+      res=> {
         localStorage.setItem('token', res.token); 
+        const payload=decode(res.token)['subject']
+        console.log(payload._id);
+        // console.log("decoded= "+JSON.stringify(decoded))
       this._router.navigate(['/bidde'])
+      
       },
       err=> console.log(err))   
   }

@@ -10,14 +10,14 @@ module.exports.createUser=async function(req, res, next) {
     user.save((err, registeredUser)=>{
         if(err)
             console.log(err);
-        else
-        // res.status(200).send(user)
-         let payload = {subject: registeredUser._id }
-        let token = jwt.sign(payload, 'girmay')
-        res.status(200).send({token})
-            console.log('Success registration with token ');
-        
-                
+        else{
+            console.log('client been saved');
+            
+            let payload = {subject: registeredUser }
+            let token = jwt.sign(payload, 'secreatkey')
+            res.status(200).send({token})
+            console.log('Success registration with token ' + token);
+        }               
     })
 
 
