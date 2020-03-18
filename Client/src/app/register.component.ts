@@ -12,7 +12,7 @@ template: `
 
 <mat-form-field>
   <mat-label> Select an option </mat-label>
-  <mat-select [(value)] = "selectedValue multiple ">
+  <mat-select  [(value)] = "selectedValue" multiple>
 
   <mat-option value="art">Art</mat-option>
   <mat-option value="entertainment">Entertainment</mat-option>
@@ -50,9 +50,7 @@ template: `
 
 </form>
   `,
-  styles: ['form, h3 {text-align: center; width:80%}']
-
-
+  styles: ['form, h3 {width:80%; margin:auto}']
 
 })
 export class RegisterComponent implements OnInit {
@@ -68,10 +66,12 @@ export class RegisterComponent implements OnInit {
       'uname':['', Validators.required],
       'pwd':['', Validators.required]
     })
+  }
         //   'catagory':this.postForm.value.catagory,
     //   'deadline':this.postForm.value.deadline
     // }
-    const formValue=this.regForm.value
+    onSubmit(){
+      const formValue=this.regForm.value
     console.log('data of form= '+JSON.stringify(formValue));
     this._regService.regClient(formValue)
     .subscribe(
@@ -80,8 +80,9 @@ export class RegisterComponent implements OnInit {
        localStorage.setItem('token', res.token)
       },
       err=> console.log(err))
-
-}  ngOnInit(): void {
+    }
+    
+  ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
 
