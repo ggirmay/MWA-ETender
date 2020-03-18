@@ -19,6 +19,8 @@ module.exports.createUser=async function(req, res, next) {
             console.log('Success registration with token ' + token);
         }               
     })
+
+
     //else 
     // const user = new bidderModel(data); 
     // user.save((err, registeredUser)=>{

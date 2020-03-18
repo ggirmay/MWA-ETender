@@ -6,7 +6,7 @@ import { BidService } from './BidService';
 
 @Component({
   selector: 'app-bid',
-  templateUrl:'./BidListComponent.html' 
+  templateUrl: './BidListComponent.html'
 ,
 styleUrls: ['./BidListComponent.css']
 })
@@ -19,14 +19,13 @@ export class BidListComponent implements OnInit {
   }
   postGroup: FormGroup;
   bidlists;
-  filterdData;
+  arraydData = [];
   particularData;
   isclicked = false;
   ngOnInit() {
       this.bidListService.getListOfBids().subscribe(data => {
-        this.bidlists = data;
         // const arr = data[0];
-         console.log(this.bidlists.itemName);
+        console.log(this.bidlists);
         // this. filterdData = arr.biddePosted;
         // console.log(this.filterdData[2]._id);
         // // this.particularData = this.filterdData[2].itemName;
