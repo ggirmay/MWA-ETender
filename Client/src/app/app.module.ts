@@ -33,6 +33,7 @@ import { CommonModule } from '@angular/common';
 import { NewRegisterComponent } from './new-register.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

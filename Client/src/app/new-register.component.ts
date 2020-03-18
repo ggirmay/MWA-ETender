@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
  
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   
+  <mat-radio-group aria-label="Select an option" name='type'>
+  <mat-radio-button name = "client" value="client" (click)="setradio('client')" > Client </mat-radio-button>
+  <mat-radio-button name = "bidder" value="bidder"(click)="setradio('bidder')"  checked> Bidder </mat-radio-button>
+  </mat-radio-group><br/>
 
   <mat-form-field>
     <mat-label>Company Name</mat-label>
@@ -42,20 +46,21 @@ import { Router } from '@angular/router';
     <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
   </mat-form-field><br/>
 
+  <mat-form-field *ngIf="isSelected('bidder')">
+  <mat-label>Catagory</mat-label><br/>
+  <mat-select formControlName="catagory" multiple>
+  <mat-option value="art">Art</mat-option>
+  <mat-option value="entertainment">Entertainment</mat-option>
+  <mat-option value="music">Music</mat-option>
+  <mat-option value="IT">IT</mat-option>
+  </mat-select>
+  </mat-form-field><br/>
+  <button>Submit</button>
   
   
-  <mat-form-field>
-    <mat-label>Catagory</mat-label><br/>
-    <mat-select formControlName="catagory" multiple>
-    <mat-option value="art">Art</mat-option>
-    <mat-option value="entertainment">Entertainment</mat-option>
-    <mat-option value="music">Music</mat-option>
-    <mat-option value="IT">IT</mat-option>
-    </mat-select>
-    </mat-form-field><br/>
-  <button>submit</button>
   
 </form>
+
   `,
   styles: []
 })
@@ -87,5 +92,24 @@ regForm:FormGroup
   }
   ngOnInit(): void {
   }
+  private selectedLink: string="bidder";        
+  
+  setradio(e: string): void   
+{  
+
+      this.selectedLink = e;  
+        
+}  
+
+  isSelected(name: string): boolean   
+{  
+
+      if (!this.selectedLink) { // if no radio button is selected, always return false so every nothing is shown  
+          return false;  
+}  
+
+      return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
+  }   
 
 }
+
