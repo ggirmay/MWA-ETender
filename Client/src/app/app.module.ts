@@ -17,7 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // import {MatExpansionModule} from '@angular/material/expansion';
 
-import { RegisterComponent } from './register.component';
+//import { RegisterComponent } from './register.component';
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
 import { RegService } from './reg.service';
@@ -35,7 +35,7 @@ import { MatSelectModule } from '@angular/material/select';
     AppComponent,
    PostComponent,
     HomeComponent,
-   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent//, HomeComponent
+    PostBidComponent, LoginComponent, BidListComponent//, HomeComponent
   ],
   imports: [
     BrowserModule,

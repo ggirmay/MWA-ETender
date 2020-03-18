@@ -93,6 +93,7 @@ export class RegisterComponent implements OnInit {
     throw new Error("Method not implemented.");
   }
 
+
 //   template: `
 //   <mat-card>
 //   <form>
@@ -129,4 +130,9 @@ export class RegisterComponent implements OnInit {
 //   }
 
 // }
+
+
+
+
+
 }
