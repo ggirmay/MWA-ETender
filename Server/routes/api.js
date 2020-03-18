@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-//const jwt = require('jwt')
+const jwt = require('jsonwebtoken')
 require('dotenv').config();
 const apiController=require('../controllers/apiController')
 const biddeController=require('../controllers/biddeController')
@@ -63,7 +63,7 @@ function verifyToken(req, res, next){
     if (token==='null'){
       return res.status(401).send('Unauthorized request')
     }
-    let payload=jwt.verify(token, 'secretkey')
+    let payload=jwt.verify(token, 'secreatkey')
     if(!payload){
       return res.status(401).send('Unauthorized request')
     }
@@ -77,5 +77,8 @@ router.post('/bidde', verifyToken ,biddeController.createbidde);
 
 router.post('/login', loginController.checkUser);
 router.get('/bidder',bidController.getBidds);
+
+router.get('/bid',bidController.getBids);
+router.post('/bid', biddeController.createbid);
 
 module.exports=router; 

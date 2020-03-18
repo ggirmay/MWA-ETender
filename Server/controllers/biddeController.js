@@ -11,8 +11,9 @@ module.exports.createbidde=async function(req, res, next) {
     // bidderModel.find({catagory:'catagory1'}, (err, bidder)=>{
     //     //     console.log('filtered bider= '+bidder);
     // })
-    bidde.componey='5e6e953a55a16716800a0c67';
-    clientModel.findOneAndUpdate({number:2},
+    // bidde.componey='5e6e953a55a16716800a0c67';
+    // console.log('company id: '+ bidde.componey)
+    clientModel.findOneAndUpdate({_id:bidde.componey},
         {$push:{biddePlaced:bidde}},
         (err, success)=> {
             if(err)
@@ -36,7 +37,7 @@ module.exports.createbidde=async function(req, res, next) {
         
     // })
 
-    bidderModel.updateMany({catagory:'catagory2'},{$push:{biddePosted:bidde}},(err, data)=>{
+    bidderModel.updateMany({catagory:bidde.catagory},{$push:{biddePosted:bidde}},(err, data)=>{
         console.log('updated bider= '+data);
     })
     // Device.update({},{cid: ''},{multi: true});
@@ -70,3 +71,18 @@ module.exports.createbidde=async function(req, res, next) {
 //     console.log('Success= '+ newBidde);
         
 // }
+
+module.exports.createbid=async function(req, res, next) {
+    const data=req.body;
+
+    const bidde=new biddeModel(data); 
+    
+    // bidde.componey='5e6e953a55a16716800a0c67';
+    bidde.save((err, success)=> {
+            if(err)
+                console.log("err= " +err);
+             else
+                console.log("success= "+success);            
+        }
+    );
+}

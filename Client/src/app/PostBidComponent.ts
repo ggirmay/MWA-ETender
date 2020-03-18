@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BidService } from './BidService';
+import * as decode from 'jwt-decode';
 
 @Component({
   selector: 'app-bid',
@@ -37,6 +38,10 @@ export class PostBidComponent implements OnInit {
   onSubmit(){
     const formValue = this.postGroup.value;
     console.log('data of form= ' + JSON.stringify(formValue));
+    // const token=localStorage.getItem('token'); 
+    // const payload=decode(token)['subject']
+    // console.log(payload._id);
+    formValue.componey='5e6e953a55a16716800a0c67';
     this.bidservice.postBid(formValue)
     .subscribe(
       res => console.log(res),

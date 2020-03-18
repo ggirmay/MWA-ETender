@@ -13,6 +13,7 @@ template: `
   <input type='checkbox' onchange='handleChange(this);'>Client<br/>
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
 
+<<<<<<< HEAD
   
 
   <mat-form-field>
@@ -20,6 +21,21 @@ template: `
     <input matInput placeholder="cname" type="text" formControlName="cname"/>
    </mat-form-field><br>
   <mat-form-field>
+=======
+<mat-form-field>
+  <mat-label> Select an option </mat-label>
+  <mat-select [(value)] = "selectedValue multiple ">
+
+  <mat-option value="art">Art</mat-option>
+  <mat-option value="entertainment">Entertainment</mat-option>
+  <mat-option value="music">Music</mat-option>
+  <mat-option value="IT">IT</mat-option>
+  </mat-select>
+  </mat-form-field><br/>
+
+
+  <mat-form-field >
+>>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
     <mat-label>Lisence Number</mat-label>
     <input matInput placeholder="lnumber" type="text" formControlName="lnumber"/>
    </mat-form-field><br>
@@ -54,14 +70,14 @@ template: `
 </form>
   `,
   styles: ['form, h3 {text-align: center; width:80%}']
- 
-  
-  
+
+
+
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
+  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) {
   //catForm: FormGroup;
-  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) { 
     this.regForm=fb.group({
       'cname':['', Validators.required],
       'lnumber':['', Validators.required],
@@ -75,15 +91,22 @@ export class RegisterComponent implements OnInit {
         
     //   'deadline':this.postForm.value.deadline
     // }
+<<<<<<< HEAD
     onSubmit(){
     
     console.log('data of form= '+JSON.stringify(this.regForm.value));
     this._regService.regClient(this.regForm.value)
+=======
+    const formValue=this.regForm.value
+    console.log('data of form= '+JSON.stringify(formValue));
+    this._regService.regClient(formValue)
+>>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
     .subscribe(
       res=> {
         console.log(res),
        localStorage.setItem('token', res.token)
       },
+<<<<<<< HEAD
       err=> console.log(err) 
   )
     }
@@ -97,8 +120,14 @@ export class RegisterComponent implements OnInit {
   }
     
   ngOnInit(): void {
+=======
+      err=> console.log(err))
+
+}  ngOnInit(): void {
+>>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
     throw new Error("Method not implemented.");
   }
+
 
 //   template: `
 //   <mat-card>
@@ -113,7 +142,7 @@ export class RegisterComponent implements OnInit {
 //     <textarea name="message3" [(ngModel)]="message3" matInput placeholder="Address"></textarea>
 //   </mat-form-field>
 // </form>
-// <mat-card-actions> 
+// <mat-card-actions>
 //   <button (click)="post()" mat-button>Post</button>
 //     </mat-card-actions>
 // </mat-card>
@@ -138,6 +167,7 @@ export class RegisterComponent implements OnInit {
 // }
 
 
+<<<<<<< HEAD
 // <mat-form-field>
 // <mat-radio-group #reg>
 // <mat-label> Select an option </mat-label>
@@ -182,6 +212,9 @@ export class RegisterComponent implements OnInit {
   
 //   <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options"/> Client
 //   </mat-form-field><br>
+=======
+
+>>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
 
 
 }

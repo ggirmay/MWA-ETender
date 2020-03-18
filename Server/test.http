@@ -1,6 +1,12 @@
-GET http://localhost:3000/bidder
+
+GET http://localhost:3000/bid
 
 ###
+
+
+
+
+
 
 POST http://localhost:3000/register/
 Content-Type: application/json
