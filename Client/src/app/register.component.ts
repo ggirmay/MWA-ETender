@@ -12,7 +12,7 @@ template: `
 
 <mat-form-field>
   <mat-label> Select an option </mat-label>
-  <mat-select[(value)] = "selectedValue multiple "
+  <mat-select [(value)] = "selectedValue multiple ">
 
   <mat-option value="art">Art</mat-option>
   <mat-option value="entertainment">Entertainment</mat-option>
@@ -20,11 +20,6 @@ template: `
   <mat-option value="IT">IT</mat-option>
   </mat-select>
   </mat-form-field><br/>
-
-
-
-
-
 
 
   <mat-form-field >
@@ -64,7 +59,6 @@ export class RegisterComponent implements OnInit {
   regForm: FormGroup;
   constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) {
   //catForm: FormGroup;
-  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) {
     this.regForm=fb.group({
       'cname':['', Validators.required],
       'lnumber':['', Validators.required],
@@ -77,6 +71,7 @@ export class RegisterComponent implements OnInit {
         //   'catagory':this.postForm.value.catagory,
     //   'deadline':this.postForm.value.deadline
     // }
+    const formValue=this.regForm.value
     console.log('data of form= '+JSON.stringify(formValue));
     this._regService.regClient(formValue)
     .subscribe(
@@ -85,13 +80,11 @@ export class RegisterComponent implements OnInit {
        localStorage.setItem('token', res.token)
       },
       err=> console.log(err))
-  }
-      err=> console.log(err)
-  )
-    }
-  ngOnInit(): void {
+
+}  ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
+
 
 //   template: `
 //   <mat-card>
