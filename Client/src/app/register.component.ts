@@ -147,7 +147,7 @@ export class RegisterComponent implements OnInit {
 
 
 
-// <mat-form-field>
+// <mat-form-field *ngIf="isSelected('bidder')">
 //   <mat-label>Catagory</mat-label><br/>
 //   <mat-select formControlName="catagory" multiple>
 //   <mat-option value="art">Art</mat-option>

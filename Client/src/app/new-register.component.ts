@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
  
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   
-  <mat-radio-group aria-label="Select an option" name='type'>
-  <mat-radio-button name = "client" value="client" (click)="setradio('client')" > Client </mat-radio-button>
-  <mat-radio-button name = "bidder" value="bidder"(click)="setradio('bidder')"  checked> Bidder </mat-radio-button>
+  <mat-radio-group aria-label="Select an option" formControlName="type">
+  <mat-radio-button name = "client" value="client" (click)="setradio('client')" checked> Client </mat-radio-button>
+  <mat-radio-button name = "bidder" value="bidder"(click)="setradio('bidder')" > Bidder </mat-radio-button>
   </mat-radio-group><br/>
 
   <mat-form-field>
@@ -75,7 +75,8 @@ regForm:FormGroup
           'email':['', Validators.required],
           'location':[''],
           'uname':['', Validators.required],
-          'pwd':['', Validators.required]
+          'pwd':['', Validators.required],
+          'type':['']
         })
   }
 
@@ -92,7 +93,7 @@ regForm:FormGroup
   }
   ngOnInit(): void {
   }
-  private selectedLink: string="bidder";        
+  private selectedLink: string="client";        
   
   setradio(e: string): void   
 {  
