@@ -1,71 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RegService } from './reg.service';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-register',
 template: `
   <h3>Registering a Bidder</h3>
-  <input type='checkbox' onchange='handleChange(this);'>Bidder
-  <input type='checkbox' onchange='handleChange(this);'>Client<br/>
+ 
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
-
-<<<<<<< HEAD
   
 
   <mat-form-field>
     <mat-label>Company Name</mat-label>
     <input matInput placeholder="cname" type="text" formControlName="cname"/>
-   </mat-form-field><br>
+  </mat-form-field><br>
+
   <mat-form-field>
-=======
-<mat-form-field>
-  <mat-label> Select an option </mat-label>
-  <mat-select [(value)] = "selectedValue multiple ">
-
-  <mat-option value="art">Art</mat-option>
-  <mat-option value="entertainment">Entertainment</mat-option>
-  <mat-option value="music">Music</mat-option>
-  <mat-option value="IT">IT</mat-option>
-  </mat-select>
-  </mat-form-field><br/>
-
-
-  <mat-form-field >
->>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
     <mat-label>Lisence Number</mat-label>
     <input matInput placeholder="lnumber" type="text" formControlName="lnumber"/>
-   </mat-form-field><br>
-    <mat-form-field >
+  </mat-form-field><br>
+
+  <mat-form-field >
     <mat-label>Email</mat-label>
     <input matInput placeholder="email" type="text" formControlName="email"/>
   </mat-form-field><br/>
+  
   <mat-form-field >
     <mat-label>Location</mat-label>
     <input matInput placeholder="location" type="text" formControlName="location"/>
   </mat-form-field><br/>
+  
   <mat-form-field >
     <mat-label>User Name</mat-label>
     <input matInput placeholder="user name" type="text" formControlName="uname"/>
   </mat-form-field><br/>
+  
   <mat-form-field >
-  <mat-label>Password</mat-label>
+    <mat-label>Password</mat-label>
     <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
   </mat-form-field><br/>
 
   <mat-form-field>
-  <mat-label>Catagory</mat-label><br/>
-  <mat-select formControlName="catagory" multiple>
-  <mat-option value="art">Art</mat-option>
-  <mat-option value="entertainment">Entertainment</mat-option>
-  <mat-option value="music">Music</mat-option>
-  <mat-option value="IT">IT</mat-option>
-  </mat-select>
-  </mat-form-field><br/>
-  <button>send</button>
+    <mat-label>Catagory</mat-label><br/>
+    <mat-select formControlName="catagory" multiple>
+    <mat-option value="art">Art</mat-option>
+    <mat-option value="entertainment">Entertainment</mat-option>
+    <mat-option value="music">Music</mat-option>
+    <mat-option value="IT">IT</mat-option>
+    </mat-select>
+    </mat-form-field><br/>
+
+
+  <button>submit</button>
 
 </form>
   `,
@@ -91,42 +81,28 @@ export class RegisterComponent implements OnInit {
         
     //   'deadline':this.postForm.value.deadline
     // }
-<<<<<<< HEAD
     onSubmit(){
     
     console.log('data of form= '+JSON.stringify(this.regForm.value));
     this._regService.regClient(this.regForm.value)
-=======
-    const formValue=this.regForm.value
-    console.log('data of form= '+JSON.stringify(formValue));
-    this._regService.regClient(formValue)
->>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
     .subscribe(
       res=> {
         console.log(res),
        localStorage.setItem('token', res.token)
       },
-<<<<<<< HEAD
       err=> console.log(err) 
   )
     }
 
-    handleChange(checkbox) {
-      if(checkbox.checked == true){
-          document.getElementById("catagory").removeAttribute("disabled");
-      }else{
-          document.getElementById("submit").setAttribute("disabled", "disabled");
-     }
-  }
+  //   handleChange(checkbox) {
+  //     if(checkbox.checked == true){
+  //         document.getElementById("catagory").removeAttribute("disabled");
+  //     }else{
+  //         document.getElementById("submit").setAttribute("disabled", "disabled");
+  //    }
+  // }
     
-  ngOnInit(): void {
-=======
-      err=> console.log(err))
-
-}  ngOnInit(): void {
->>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
-    throw new Error("Method not implemented.");
-  }
+  ngOnInit(): void { }
 
 
 //   template: `
@@ -167,7 +143,6 @@ export class RegisterComponent implements OnInit {
 // }
 
 
-<<<<<<< HEAD
 // <mat-form-field>
 // <mat-radio-group #reg>
 // <mat-label> Select an option </mat-label>
@@ -212,9 +187,19 @@ export class RegisterComponent implements OnInit {
   
 //   <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options"/> Client
 //   </mat-form-field><br>
-=======
 
->>>>>>> e1a493abf3276092734d4ed87adf149d4e0139da
+
+
+// <mat-form-field>
+//   <mat-label>Catagory</mat-label><br/>
+//   <mat-select formControlName="catagory" multiple>
+//   <mat-option value="art">Art</mat-option>
+//   <mat-option value="entertainment">Entertainment</mat-option>
+//   <mat-option value="music">Music</mat-option>
+//   <mat-option value="IT">IT</mat-option>
+//   </mat-select>
+//   </mat-form-field><br/>
+
 
 
 }

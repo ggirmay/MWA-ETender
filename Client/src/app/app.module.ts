@@ -29,6 +29,8 @@ import {TokenInterceptorService} from './token-interceptor.service'
 import {MatRadioModule} from '@angular/material/radio';
 import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -51,10 +53,12 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatRadioModule,
     //  MatExpansionModule,
-
+    
+    MatSelectModule,
     FormsModule,
     MatCheckboxModule,
-    MatSelectModule
+    CommonModule,
+   
   ],
   providers: [BiddeService, BidService, RegService, LoginService, LoginGuard, TokenInterceptorService,
   {
