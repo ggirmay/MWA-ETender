@@ -8,11 +8,7 @@ module.exports.createbidde=async function(req, res, next) {
 
     const bidde=new biddeModel(data); 
     const client=new clientModel();
-    // bidderModel.find({catagory:'catagory1'}, (err, bidder)=>{
-    //     //     console.log('filtered bider= '+bidder);
-    // })
-    // bidde.componey='5e6e953a55a16716800a0c67';
-    // console.log('company id: '+ bidde.componey)
+    
     clientModel.findOneAndUpdate({_id:bidde.componey},
         {$push:{biddePlaced:bidde}},
         (err, success)=> {
@@ -22,7 +18,17 @@ module.exports.createbidde=async function(req, res, next) {
                 console.log("success= "+success);            
         }
     );
-    // const bidder = new bidderModel({
+
+    bidderModel.updateMany({catagory:bidde.catagory},{$push:{biddePosted:bidde}},(err, data)=>{
+        console.log('updated bider= '+data);
+    })
+    // bidderModel.find({catagory:'catagory1'}, (err, bidder)=>{
+    //     //     console.log('filtered bider= '+bidder);
+    // })
+    // bidde.componey='5e6e953a55a16716800a0c67';
+    // console.log('company id: '+ bidde.componey)
+    
+     // const bidder = new bidderModel({
     //     cname:'company2',
     // lnumber:23,
     // catagory:['catagory2', 'catagory3'],
@@ -37,9 +43,6 @@ module.exports.createbidde=async function(req, res, next) {
         
     // })
 
-    bidderModel.updateMany({catagory:bidde.catagory},{$push:{biddePosted:bidde}},(err, data)=>{
-        console.log('updated bider= '+data);
-    })
     // Device.update({},{cid: ''},{multi: true});
     // clientModel.findOne({cname:'abc'}, (err, client) => {
     //             if(client){

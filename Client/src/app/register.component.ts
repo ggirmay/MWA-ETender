@@ -77,14 +77,18 @@ export class RegisterComponent implements OnInit {
       'location':[''],
       'uname':['', Validators.required],
       'pwd':['', Validators.required]
-    })}
+    })
+  }
+        //   'catagory':this.postForm.value.catagory,
+    //   'deadline':this.postForm.value.deadline
+    // }
         
     //   'deadline':this.postForm.value.deadline
     // }
     onSubmit(){
-    
-    console.log('data of form= '+JSON.stringify(this.regForm.value));
-    this._regService.regClient(this.regForm.value)
+      const formValue=this.regForm.value
+    console.log('data of form= '+JSON.stringify(formValue));
+    this._regService.regClient(formValue)
     .subscribe(
       res=> {
         console.log(res),
@@ -93,6 +97,7 @@ export class RegisterComponent implements OnInit {
       err=> console.log(err) 
   )
     }
+    
 
   //   handleChange(checkbox) {
   //     if(checkbox.checked == true){
@@ -104,7 +109,7 @@ export class RegisterComponent implements OnInit {
     
   ngOnInit(): void { }
 
-
+}
 //   template: `
 //   <mat-card>
 //   <form>
@@ -141,7 +146,6 @@ export class RegisterComponent implements OnInit {
 //   }
 
 // }
-
 
 // <mat-form-field>
 // <mat-radio-group #reg>
@@ -202,4 +206,45 @@ export class RegisterComponent implements OnInit {
 
 
 
-}
+// <h3>Registering a Bidder</h3>
+//   <input type='checkbox' onchange='handleChange(this);'>Bidder
+//   <input type='checkbox' onchange='handleChange(this);'>Client<br/>
+//   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+
+//   <mat-form-field>
+//     <mat-label>Company Name</mat-label>
+//     <input matInput placeholder="cname" type="text" formControlName="cname"/>
+//    </mat-form-field><br>
+//   <mat-form-field>
+//     <mat-label>Lisence Number</mat-label>
+//     <input matInput placeholder="lnumber" type="text" formControlName="lnumber"/>
+//    </mat-form-field><br>
+//     <mat-form-field >
+//     <mat-label>Email</mat-label>
+//     <input matInput placeholder="email" type="text" formControlName="email"/>
+//   </mat-form-field><br/>
+//   <mat-form-field >
+//     <mat-label>Location</mat-label>
+//     <input matInput placeholder="location" type="text" formControlName="location"/>
+//   </mat-form-field><br/>
+//   <mat-form-field >
+//     <mat-label>User Name</mat-label>
+//     <input matInput placeholder="user name" type="text" formControlName="uname"/>
+//   </mat-form-field><br/>
+//   <mat-form-field >
+//   <mat-label>Password</mat-label>
+//     <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
+//   </mat-form-field><br/>
+
+//   <mat-form-field>
+//   <mat-label>Catagory</mat-label><br/>
+//   <mat-select formControlName="catagory" multiple>
+//   <mat-option value="art">Art</mat-option>
+//   <mat-option value="entertainment">Entertainment</mat-option>
+//   <mat-option value="music">Music</mat-option>
+//   <mat-option value="IT">IT</mat-option>
+//   </mat-select>
+//   </mat-form-field><br/>
+//   <button>send</button>
+
+// </form>

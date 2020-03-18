@@ -23,7 +23,8 @@ template: `
 
 </form>
   `,
-  styles: ['form, h3 {text-align: center; width:100%}']
+  styles: ['form, h3 {width:80%; margin:auto}']
+
 })
 export class LoginComponent implements OnInit {
   regForm: FormGroup;

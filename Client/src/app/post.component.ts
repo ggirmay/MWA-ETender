@@ -29,7 +29,7 @@ import * as decode from 'jwt-decode';
 
 </form>
   `,
-  styles: []
+  styles: ['form, h3 {width:80%; margin:auto}']
 })
 export class PostComponent implements OnInit {
   postForm: FormGroup;
