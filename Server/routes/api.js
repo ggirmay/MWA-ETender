@@ -78,4 +78,7 @@ router.post('/bidde', verifyToken ,biddeController.createbidde);
 router.post('/login', loginController.checkUser);
 router.get('/bidder',bidController.getBidds);
 
+router.get('/bid',bidController.getBids);
+router.post('/bid', biddeController.createbid);
+
 module.exports=router; 

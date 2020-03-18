@@ -1,4 +1,11 @@
-p,h6{
+/* p,h6{
   text-align: center;
   width:80%
 }
+
+.parent{
+  text-align: center;
+}
+form{
+  align-items: center;
+} */

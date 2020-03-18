@@ -71,3 +71,18 @@ module.exports.createbidde=async function(req, res, next) {
 //     console.log('Success= '+ newBidde);
         
 // }
+
+module.exports.createbid=async function(req, res, next) {
+    const data=req.body;
+
+    const bidde=new biddeModel(data); 
+    
+    // bidde.componey='5e6e953a55a16716800a0c67';
+    bidde.save((err, success)=> {
+            if(err)
+                console.log("err= " +err);
+             else
+                console.log("success= "+success);            
+        }
+    );
+}

@@ -1,0 +1,38 @@
+<div  *ngFor="let post of bidlists ">
+  <div>
+  <p > catagory {{post.catagory}}
+      <p > ItemName {{post.itemName}}</p>
+
+      <p> openingDate {{post.openingDate}}
+      <p> Amount {{post.amount}}
+      <p> Deadline {{post.closingDate}}
+      <p> Specification {{post.Specification}}
+      <p> Company {{post.componey.location}}
+  </div>
+  
+  <button (click)='viewDetails()'  mat-raised-button color="primary">View Details</button>
+  <div *ngIf='isclicked'>
+  <p><p> Company {{post.componey.location}}</p>
+
+</div>
+
+  
+        <h5> Fill out the form</h5>
+      
+  <mat-card>
+    <form [formGroup]="postGroup" (ngSubmit)="applyBid()">
+    <mat-form-field >
+      <mat-label>Applying Date</mat-label>
+      <input matInput placeholder="applying Date" type="date"  min="2020-01-01"
+       max="2020-07-07" formControlName="applyingDate"/>
+    </mat-form-field><br/>
+    <mat-form-field >
+      <mat-label>Amount </mat-label>
+      <input matInput placeholder="optional" type="text" formControlName="amount"/>
+    </mat-form-field><br/>
+    <button mat-raised-button color="primary">Save</button>
+
+  </form>
+  </mat-card>
+
+</div>

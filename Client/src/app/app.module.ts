@@ -25,16 +25,17 @@ import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
-import {TokenInterceptorService} from './token-interceptor.service';
-import { HomeComponent } from './home/home.component'
-
+import {TokenInterceptorService} from './token-interceptor.service'
+import {MatRadioModule} from '@angular/material/radio';
+import { HomeComponent } from './home/home.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
     HomeComponent,
-   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent, HomeComponent
+   RegisterComponent, PostBidComponent, LoginComponent, BidListComponent//, HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +49,12 @@ import { HomeComponent } from './home/home.component'
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-
+    MatRadioModule,
     //  MatExpansionModule,
 
     FormsModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [BiddeService, BidService, RegService, LoginService, LoginGuard, TokenInterceptorService,
   {
