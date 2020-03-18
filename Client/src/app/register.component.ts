@@ -10,54 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
   selector: 'app-register',
 template: `
   <h3>Registering a Bidder</h3>
- 
-  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
-  
 
-  <mat-form-field>
-    <mat-label>Company Name</mat-label>
-    <input matInput placeholder="cname" type="text" formControlName="cname"/>
-  </mat-form-field><br>
-
-  <mat-form-field>
-    <mat-label>Lisence Number</mat-label>
-    <input matInput placeholder="lnumber" type="text" formControlName="lnumber"/>
-  </mat-form-field><br>
-
-  <mat-form-field >
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="email" type="text" formControlName="email"/>
-  </mat-form-field><br/>
-  
-  <mat-form-field >
-    <mat-label>Location</mat-label>
-    <input matInput placeholder="location" type="text" formControlName="location"/>
-  </mat-form-field><br/>
-  
-  <mat-form-field >
-    <mat-label>User Name</mat-label>
-    <input matInput placeholder="user name" type="text" formControlName="uname"/>
-  </mat-form-field><br/>
-  
-  <mat-form-field >
-    <mat-label>Password</mat-label>
-    <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
-  </mat-form-field><br/>
-
-  <mat-form-field>
-    <mat-label>Catagory</mat-label><br/>
-    <mat-select formControlName="catagory" multiple>
-    <mat-option value="art">Art</mat-option>
-    <mat-option value="entertainment">Entertainment</mat-option>
-    <mat-option value="music">Music</mat-option>
-    <mat-option value="IT">IT</mat-option>
-    </mat-select>
-    </mat-form-field><br/>
-
-
-  <button>submit</button>
-
-</form>
   `,
   styles: ['form, h3 {text-align: center; width:80%}']
 
@@ -65,39 +18,42 @@ template: `
 
 })
 export class RegisterComponent implements OnInit {
-  regForm: FormGroup;
-  constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) {
-  //catForm: FormGroup;
-    this.regForm=fb.group({
-      'cname':['', Validators.required],
-      'lnumber':['', Validators.required],
-      'usertype':['', Validators.required],
-      'catagory': ['', Validators.required],
-      'email':['', Validators.required],
-      'location':[''],
-      'uname':['', Validators.required],
-      'pwd':['', Validators.required]
-    })
-  }
-        //   'catagory':this.postForm.value.catagory,
-    //   'deadline':this.postForm.value.deadline
-    // }
+  // regForm: FormGroup;
+  // constructor(private fb: FormBuilder, private _regService:RegService, private _router : Router) {
+  // //catForm: FormGroup;
+  //   this.regForm=fb.group({
+  //     'cname':['', Validators.required],
+  //     'lnumber':['', Validators.required],
+  //     'usertype':['', Validators.required],
+  //     'catagory': ['', Validators.required],
+  //     'email':['', Validators.required],
+  //     'location':[''],
+  //     'uname':['', Validators.required],
+  //     'pwd':['', Validators.required]
+  //   })
+  // }
+  //       //   'catagory':this.postForm.value.catagory,
+  //   //   'deadline':this.postForm.value.deadline
+  //   // }
         
-    //   'deadline':this.postForm.value.deadline
-    // }
-    onSubmit(){
-      const formValue=this.regForm.value
-    console.log('data of form= '+JSON.stringify(formValue));
-    this._regService.regClient(formValue)
-    .subscribe(
-      res=> {
-        console.log(res),
-       localStorage.setItem('token', res.token)
-      },
-      err=> console.log(err) 
-  )
-    }
-    
+  //   //   'deadline':this.postForm.value.deadline
+  //   // }
+  //   onSubmit(){
+  //     const formValue=this.regForm.value
+  //   console.log('data of form= '+JSON.stringify(formValue));
+  //   this._regService.regClient(formValue)
+  //   .subscribe(
+  //     res=> {
+  //       console.log(res),
+  //      localStorage.setItem('token', res.token)
+  //     },
+  //     err=> console.log(err) 
+  // )
+
+  //   }
+    ngOnInit(): void { }
+
+}
 
   //   handleChange(checkbox) {
   //     if(checkbox.checked == true){
@@ -107,9 +63,6 @@ export class RegisterComponent implements OnInit {
   //    }
   // }
     
-  ngOnInit(): void { }
-
-}
 //   template: `
 //   <mat-card>
 //   <form>

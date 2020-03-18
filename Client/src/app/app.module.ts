@@ -30,6 +30,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { NewRegisterComponent } from './new-register.component';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { CommonModule } from '@angular/common';
     AppComponent,
    PostComponent,
     HomeComponent,
-    PostBidComponent, LoginComponent, BidListComponent//, HomeComponent
+    PostBidComponent, LoginComponent, BidListComponent, NewRegisterComponent//, HomeComponent
   ],
   imports: [
     BrowserModule,
