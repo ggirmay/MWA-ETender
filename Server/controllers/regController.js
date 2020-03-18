@@ -13,7 +13,7 @@ module.exports.createUser=async function(req, res, next) {
         else{
             console.log('client been saved');
             
-            let payload = {subject: registeredUser._id }
+            let payload = {subject: registeredUser }
             let token = jwt.sign(payload, 'secreatkey')
             res.status(200).send({token})
             console.log('Success registration with token ' + token);

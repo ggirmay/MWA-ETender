@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BiddeService } from './bidde.service';
+import * as decode from 'jwt-decode';
 
 @Component({
   selector: 'app-post',
@@ -52,11 +53,15 @@ export class PostComponent implements OnInit {
     //   'catagory':this.postForm.value.catagory,
     //   'deadline':this.postForm.value.deadline
     // }
-    console.log('data of form= '+JSON.stringify(formValue));
+    const token=localStorage.getItem('token'); 
+    const payload=decode(token)['subject']
+    formValue.componey=payload._id;
+    console.log(JSON.stringify(formValue));
     this._biddeService.createBidde(formValue)
     .subscribe(
       res=> console.log(res),
-      err=> console.log(err))   
+      err=> console.log(err))
+      this.postForm.reset()
   }
   ngOnInit(): void {
   }
