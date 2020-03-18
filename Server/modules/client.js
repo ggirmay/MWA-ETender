@@ -5,7 +5,7 @@ const Schema=mongoose.Schema;
 const clientSchema=new Schema({ 
     cname:String,
     lnumber:Number,
-    catagory:String,
+    catagory:{type:Array},
     email: String,
     location:String,
     uname:String, 
