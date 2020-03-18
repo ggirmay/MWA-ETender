@@ -20,4 +20,8 @@ export class BidService  {
  SavefBids(data) {
   return this.http.post('http://localhost:3000/applyBid',data);
 }
+SaveAppliedBids(receivedBid) {
+  return this.http.post('http://localhost:3000/bidReceived',receivedBid);
+}
+
 }

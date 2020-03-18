@@ -44,4 +44,12 @@ export class BidListComponent implements OnInit {
     this.isclicked = true;
     console.log('hello');
   }
+  saveAppliedBid() {
+    const formValue = this.postGroup.value;
+    console.log('data of form= ' + JSON.stringify(formValue));
+    this.bidListService.SaveAppliedBids(formValue)
+    .subscribe(
+      res => console.log(res),
+      err => console.log(err));
+  }
 }
