@@ -17,7 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // import {MatExpansionModule} from '@angular/material/expansion';
 
-//import { RegisterComponent } from './register.component';
+// import { RegisterComponent } from './register.component';
 import { PostBidComponent } from './PostBidComponent';
 import { BidService } from './BidService';
 import { RegService } from './reg.service';
@@ -25,17 +25,18 @@ import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
 import { LoginGuard } from './login.guard';
 import { BidListComponent } from './BidListComponent';
-import {TokenInterceptorService} from './token-interceptor.service'
+import {TokenInterceptorService} from './token-interceptor.service';
 import {MatRadioModule} from '@angular/material/radio';
 import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select';
+import { WinnerComponent } from './WinnerComponent';
 
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
     HomeComponent,
-    PostBidComponent, LoginComponent, BidListComponent//, HomeComponent
+    PostBidComponent, LoginComponent, BidListComponent, WinnerComponent// , HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,7 @@ import { MatSelectModule } from '@angular/material/select';
   ],
   providers: [BiddeService, BidService, RegService, LoginService, LoginGuard, TokenInterceptorService,
   {
-    provide:HTTP_INTERCEPTORS,
+    provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
   }],

@@ -1,38 +1,53 @@
-<div  *ngFor="let post of bidlists ">
-  <div>
-  <p > catagory {{post.catagory}}
-      <p > ItemName {{post.itemName}}</p>
+<!-- <div  *ngFor="let post of bidlists "> -->
 
+  <div class ="parent" *ngFor="let post of bidlists " (click)="selectedBid(post)">
+    <h3  > ItemName {{post.itemName}}</h3>
+    <p > catagory {{post.catagory}}
       <p> openingDate {{post.openingDate}}
       <p> Amount {{post.amount}}
       <p> Deadline {{post.closingDate}}
       <p> Specification {{post.Specification}}
-      <p> Company {{post.componey.location}}
+      <p> Company Location  {{arrayData.componey.location}}<br>
+     <button class ='itemName' (click)='viewDetails()'  mat-raised-button color="primary">Select</button>
+     <h5> Fill out the form</h5>
+
+     <mat-card>
+       <form [formGroup]="postGroup" (ngSubmit)="applyBid()">
+        <mat-form-field >
+          <mat-label>Company Name </mat-label>
+          <input matInput placeholder="Company Name" type="text" formControlName="companyName"/>
+        </mat-form-field><br/>
+       <mat-form-field >
+         <mat-label>Applying Date</mat-label>
+         <input matInput placeholder="applying Date" type="date"  min="2020-01-01"
+          max="2020-07-07" formControlName="applyingDate"/>
+       </mat-form-field><br/>
+       <mat-form-field >
+         <mat-label>Amount </mat-label>
+         <input matInput placeholder="optional" type="text" formControlName="amount"/>
+       </mat-form-field><br/>
+       <button mat-raised-button color="primary">Save</button>
+
+     </form>
+     </mat-card>
   </div>
-  
-  <button (click)='viewDetails()'  mat-raised-button color="primary">View Details</button>
-  <div *ngIf='isclicked'>
+
+  <!-- <ul>
+    <li *ngFor=" let post of bidlists " (click)="selectedBid()">{{post}}</li>
+
+    </ul> -->
+
+
+
+
+
+
+  <!-- <div *ngIf='isclicked'>
   <p><p> Company {{post.componey.location}}</p>
 
-</div>
+</div> -->
 
-  
-        <h5> Fill out the form</h5>
-      
-  <mat-card>
-    <form [formGroup]="postGroup" (ngSubmit)="applyBid()">
-    <mat-form-field >
-      <mat-label>Applying Date</mat-label>
-      <input matInput placeholder="applying Date" type="date"  min="2020-01-01"
-       max="2020-07-07" formControlName="applyingDate"/>
-    </mat-form-field><br/>
-    <mat-form-field >
-      <mat-label>Amount </mat-label>
-      <input matInput placeholder="optional" type="text" formControlName="amount"/>
-    </mat-form-field><br/>
-    <button mat-raised-button color="primary">Save</button>
 
-  </form>
-  </mat-card>
 
-</div>
+
+<!-- </div> -->
