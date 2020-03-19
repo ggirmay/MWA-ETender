@@ -1,31 +1,88 @@
 const clientModel=require('../modules/login')
+const bidderModel=require('../modules/bidder')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 
 module.exports.checkUser=async function(req, res, next) {
   let user = req.body
-  //comparing hashed password
+
+  // bcrypt.compare('somePassword', hash, function(err, res) {
+  //   if(res) {
+  //    // Passwords match
+  //   } else {
+  //    // Passwords don't match
+  //   } 
+  // });
+
+  bidderModel.findOne({uname: user.uname}, (err, dbuser)=>{
+    if (err) 
+      console.log(err) 
+    else{    
+      if(!dbuser){
+        clientModel.findOne({uname: user.uname}, (err, cdbuser) => {
+          // if (bcrypt.compare(user.pwd, hash)){
+          // }
+          if (err) {
+            console.log(err)    
+          } else {
+            console.log(cdbuser.uname)   
+            console.log(cdbuser.pwd)
+            
+            if (!cdbuser){
+              res.status(401).send('Invalid user-name or Password')
+              console.log('Wrong Credential no user1')
+            } 
+            else{
+              bcrypt.compare(user.pwd, cdbuser.pwd, (err, result)=>{
+                if(result){
+                  let payload = {subject: cdbuser}
+                  let token = jwt.sign(payload, 'secreatkey')
+                  res.status(200).send({token})
+                }
+                else{
+                  res.status(401).send('Invalid user-name or Password')
+              console.log('Wrong Credential hashed')
+                }
+              })
+            }
+          }
+        })
+      }
+      else{
+        bcrypt.compare(user.pwd, dbuser.pwd, (err, result)=>{
+          if(result){
+            let payload = {subject: dbuser}
+            let token = jwt.sign(payload, 'secreatkey')
+            res.status(200).send({token})
+          }
+          else{
+            res.status(401).send('Invalid user-name or Password')
+        console.log('Wrong Credential hashed')
+          }
+        })  
+      }
+    }  
+  })
     
-    clientModel.findOne({uname: user.uname}, (err, dbuser) => {
+}
 
-      if (bcrypt.compare(user.pwd, hash)){
+// } if (dbuser.pwd !== user.pwd) {
+//   res.status(401).send('Invalid user-name or Password')
+//   console.log('Wrong Credential kkkkk')
+// } else {
+//    let payload = {subject: dbuser}
+//    let token = jwt.sign(payload, 'secreatkey')
+//    res.status(200).send({token})
+//   //  console.log('Success login with token ' + token);
+// }
 
-      }
-      if (err) {
-        console.log(err)    
-      } else {
-        console.log(dbuser.uname)   
-        console.log(dbuser.pwd)   
-        // if (!dbuser || bcrypt.compare(user.pwd, dbuser.pwd)) {
-        if (!dbuser || dbuser.pwd !== user.pwd) {
-          res.status(401).send('Invalid user-name or Password')
-          console.log('Wrong Credential')
-        } else {
-           let payload = {subject: dbuser}
-           let token = jwt.sign(payload, 'secreatkey')
-           res.status(200).send({token})
-          //  console.log('Success login with token ' + token);
-        }
-      }
-    })
-  }
+              // } if(bcrypt.compare(user.pwd, dbuser.pwd)) {
+            // // if (!cdbuser || cdbuser.pwd !== user.pwd) {
+            //   res.status(401).send('Invalid user-name or Password')
+            //   console.log('Wrong Credential')
+            // } else {
+            //    let payload = {subject: cdbuser}
+            //    let token = jwt.sign(payload, 'secreatkey')
+            //    res.status(200).send({token})
+            //   //  console.log('Success login with token ' + token);
+            // }

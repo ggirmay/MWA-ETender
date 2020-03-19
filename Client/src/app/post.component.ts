@@ -7,6 +7,7 @@ import * as decode from 'jwt-decode';
   selector: 'app-post',
   template: `
   <mat-card>
+  <h2>Welcome {{user}}</h2>
   <h3>Posting a bet</h3>
   <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
   <mat-form-field >
@@ -31,12 +32,16 @@ import * as decode from 'jwt-decode';
   <button type="submit" [disabled]="!postForm.valid" mat-raised-button color="primary">Send</button>
 
 </form>
+
 </mat-card>
   `,
   styles: ['form, h3 {width:80%; margin:auto}']
 })
 export class PostComponent implements OnInit {
   postForm: FormGroup;
+  public token;
+  public payload;
+  public user;
   constructor(private fb: FormBuilder, private _biddeService:BiddeService) { 
     this.postForm=fb.group({
       'itemName':['', Validators.required],
@@ -44,6 +49,10 @@ export class PostComponent implements OnInit {
       'catagory':['', Validators.required],
       'deadline':['']
     })
+
+    this.token=localStorage.getItem('token'); 
+    this.payload=decode(this.token)['subject']
+this.user=this.payload.cname;
     // this.postForm.valueChanges.subscribe(
     //   (data: any) => console.log(data)
     // );
@@ -57,15 +66,15 @@ export class PostComponent implements OnInit {
     //   'catagory':this.postForm.value.catagory,
     //   'deadline':this.postForm.value.deadline
     // }
-    const token=localStorage.getItem('token'); 
-    const payload=decode(token)['subject']
-    formValue.componey=payload._id;
+    // const token=localStorage.getItem('token'); 
+    // const payload=decode(token)['subject']
+    formValue.componey=this.payload._id;
     console.log(JSON.stringify(formValue));
     this._biddeService.createBidde(formValue)
     .subscribe(
       res=> console.log(res),
       err=> console.log(err))
-      this.postForm.reset()
+      this.postForm.reset();
   }
   ngOnInit(): void {
   }

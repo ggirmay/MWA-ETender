@@ -18,10 +18,14 @@ export class BidService  {
    return this.http.get('http://localhost:3000/bid');
  }
  SavefBids(data) {
-  return this.http.post('http://localhost:3000/applyBid',data);
+  return this.http.post('http://localhost:3000/applyBid', data);
 }
 SaveAppliedBids(receivedBid) {
-  return this.http.post('http://localhost:3000/bidReceived',receivedBid);
+  return this.http.post('http://localhost:3000/bidReceived', receivedBid);
 }
 
+
+getWinner() {
+  return this.http.get('http://localhost:3000/winner');
+}
 }

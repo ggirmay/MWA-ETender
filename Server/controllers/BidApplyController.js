@@ -2,6 +2,7 @@ const bidModel=require('../modules/BidApply')
 const bidderModel=require('../modules/bidder');
 const biddModel=require('../modules/bidde');
 const bidReceivedModel=require('../modules/BidRecieved');
+const clientModel=require('../modules/client');
 
 module.exports.postBid=async function(req, res, next) {
     // const bid=req.body;
@@ -57,10 +58,26 @@ module.exports.createbidReceived=async function(req, res, next) {
 module.exports.getWinnerBidder= async function (req, res, next) {
     const bidReceived = new bidReceivedModel();
     // SampleModel.find( { dates : { $elemMatch: {  date : { $gte: 'DATE_VALUE' } } } } )
-    const x=bidReceivedModel.find({clientId:"5e6e934455a16716800a0c66"}).select("bidder.PriceAmount").sort({"bidder.PriceAmount":-1}).limit(1);
+    const x=bidReceivedModel.find({clientId:"5e6e934455a16716800a0c66"}).select("bidder").sort({"bidder.PriceAmount":-1}).limit(1);
     x.exec(function (err, someValue) {
         if (err) return next(err);
         res.send(someValue);
     });
 
+}
+module.exports.createbidReceived=async function(req, res, next) {
+    const data=req.body;
+
+    const bidReceived=new bidReceivedModel(data); 
+    const client=new clientModel();
+    
+    clientModel.findOneAndUpdate({_id:bidde.componey},
+        {$push:{biddeRecived:bidReceived}},
+        (err, success)=> {
+            if(err)
+                console.log("err= " +err);
+             else
+                console.log("success= "+success);            
+        }
+    );
 }

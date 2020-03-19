@@ -4,21 +4,17 @@ const Schema=mongoose.Schema;
 
 const bidRecievedSchema=new Schema({ 
     itemName:String,
+    companyName:String,
     catagory:{
      type:  String,trim:true,
     },
     
-    bidder:[
-        {bidderId:{
+    
+        bidderId:{
             type:mongoose.Schema.Types.ObjectId,ref:'Bidder'
         },
         PriceAmount:Number,
-        appliedDate:Date
-        }
-    ],
-    clientId:{type:mongoose.Schema.Types.ObjectId,ref:'Client'}
-   
-
+        appliedDate:Date,
 })
 
 module.exports=mongoose.model('BidReceived', bidRecievedSchema)
