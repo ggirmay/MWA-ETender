@@ -8,4 +8,4 @@ const clientSchema=new Schema({
     pwd : String
    })
 
-module.exports=mongoose.model('client', clientSchema)
+module.exports=mongoose.model('bidder', clientSchema)
