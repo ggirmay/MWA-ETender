@@ -1,5 +1,6 @@
 const mongoose= require('mongoose');
 
+
 const Schema=mongoose.Schema;
 
 const clientSchema=new Schema({ 
@@ -9,9 +10,22 @@ const clientSchema=new Schema({
     email: String,
     location:String,
     uname:String, 
-    pwd : String,
+    pwd : {type: String, required:true, maxLength:80},
     biddePlaced:{type:Array},
-    biddeRecived:{type:Array}
+    biddeRecived:[{
+
+        itemName:String,
+        companyName:String,
+        catagory:{type:  String,trim:true,},
+        
+        
+            bidderId:{ type:mongoose.Schema.Types.ObjectId,ref:'Client' },
+            clientId:{ type:mongoose.Schema.Types.ObjectId,ref:'Bidder' },
+            amount:Number,
+            appliedDate:Date.now(),
+    }],
+    biddeRecived:{type:Array},
+    type:String
     // componeyName:{type:String, required:true },
     // location:{type:String, required:true },
     // email:{type:email, required:true },

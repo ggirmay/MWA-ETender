@@ -2,15 +2,20 @@
   <mat-toolbar  color="primary"  class="fixed-header">
     <mat-toolbar-row>
     <span><img  src="./assets/Bid_logo.png"  style="width:50px;"></span>
+
     <span>
         <a  mat-button  float-right routerLink="/bidde">Post Bidde</a>
         <a  mat-button  routerLink="/postBid">Add Bid</a>
         <a  mat-button  routerLink="/bidder">Available  Bids</a>
+        <a  mat-button  routerLink="/winner">Winner  Bidder</a>
     </span>
+
     <span class="example-spacer"></span>
+    <span>
     <a  mat-button *ngIf="!loginService.loggedIn()" routerLink="/login">Login</a>
     <a  mat-button *ngIf="!loginService.loggedIn()" routerLink="/register"  routerLinkActive="active">Register</a>
     <a  mat-button *ngIf="loginService.loggedIn()" (click)="loginService.logout()">Logout</a>
+  </span>
     </mat-toolbar-row>
     </mat-toolbar>
 

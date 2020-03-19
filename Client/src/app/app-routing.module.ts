@@ -8,6 +8,7 @@ import { LoginGuard } from './login.guard';
 import { PostBidComponent } from './PostBidComponent';
 import { BidListComponent } from './BidListComponent';
 import { HomeComponent } from './home/home.component';
+import { WinnerComponent } from './WinnerComponent';
 import { NewRegisterComponent } from './new-register.component';
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
 { path:'register', component: NewRegisterComponent },
 { path:'login', component: LoginComponent },
 {path:'postBid', component:PostBidComponent},
-{path:'bidder',component:BidListComponent}
+{path:'bidder',component:BidListComponent},
+{path:'winner',component:WinnerComponent}
 ];
 
 

@@ -9,3 +9,9 @@
 form{
   align-items: center;
 } */
+.parent:hover{
+  background-color: rgb(223, 230, 235);
+}
+.itemName{
+  width: 15%;
+}

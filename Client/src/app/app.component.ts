@@ -5,7 +5,7 @@ import {LoginService} from './login.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: [`.fixed-header{font-size : 20px}`]
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {

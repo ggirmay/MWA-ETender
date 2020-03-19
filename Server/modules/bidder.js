@@ -13,7 +13,8 @@ const bidderSchema=new Schema({
     uname:String, 
     pwd : String,
     biddeApplied:{type:Array},
-    biddePosted:{type:Array}
+    biddePosted:{type:Array},
+    type:String
     // componeyName:{type:String, required:true },
     // location:{type:String, required:true },
     // email:{type:email, required:true },
