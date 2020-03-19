@@ -19,9 +19,10 @@ const clientSchema=new Schema({
         catagory:{type:  String,trim:true,},
         
         
-            bidderId:{ type:mongoose.Schema.Types.ObjectId,ref:'Bidder' },
+            bidderId:{ type:mongoose.Schema.Types.ObjectId,ref:'Client' },
+            clientId:{ type:mongoose.Schema.Types.ObjectId,ref:'Bidder' },
             amount:Number,
-            appliedDate:Date,
+            appliedDate:Date.now(),
     }],
     biddeRecived:{type:Array},
     type:String

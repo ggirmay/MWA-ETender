@@ -17,6 +17,7 @@ export class BidService  {
  getListOfBids() {
    return this.http.get('http://localhost:3000/bid');
  }
+
  SavefBids(data) {
   return this.http.post('http://localhost:3000/applyBid', data);
 }

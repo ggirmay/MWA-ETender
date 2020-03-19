@@ -68,11 +68,11 @@ module.exports.getWinnerBidder= async function (req, res, next) {
 }
 module.exports.createbidReceived=async function(req, res, next) {
     const data=req.body;
-
+const id=req.body.clientId;
     const bidReceived=new bidReceivedModel(data); 
     const client=new clientModel();
     console.log("Aha"+bidReceived)
-    clientModel.findOneAndUpdate({_id:"5e728aaf904fa821b456e32d" },
+    clientModel.findOneAndUpdate({_id:id },
         {$push:{biddeRecived:bidReceived}},
         (err, success)=> {
             if(err)
