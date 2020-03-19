@@ -9,7 +9,7 @@ export class RegService {
   constructor(private http: HttpClient) { }
 
   regClient(user){
-    console.log('in create bidde');
+    console.log('value forwarded to back end');
     
     return this.http.post<any>('http://localhost:3000/register/', user);
     

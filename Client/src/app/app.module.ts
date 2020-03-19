@@ -30,13 +30,17 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select';
 import { WinnerComponent } from './WinnerComponent';
+import { CommonModule } from '@angular/common';
+import { NewRegisterComponent } from './new-register.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
    PostComponent,
     HomeComponent,
-    PostBidComponent, LoginComponent, BidListComponent, WinnerComponent// , HomeComponent
+    PostBidComponent, LoginComponent, BidListComponent, WinnerComponent, NewRegisterComponent//, HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +57,11 @@ import { WinnerComponent } from './WinnerComponent';
     MatRadioModule,
     //  MatExpansionModule,
 
+    MatSelectModule,
     FormsModule,
     MatCheckboxModule,
-    MatSelectModule
+    CommonModule,
+
   ],
   providers: [BiddeService, BidService, RegService, LoginService, LoginGuard, TokenInterceptorService,
   {
