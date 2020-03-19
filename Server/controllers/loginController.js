@@ -1,4 +1,4 @@
-const clientModel=require('../modules/login')
+const clientModel=require('../modules/client')
 const bidderModel=require('../modules/bidder')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
@@ -20,14 +20,13 @@ module.exports.checkUser=async function(req, res, next) {
     else{    
       if(!dbuser){
         clientModel.findOne({uname: user.uname}, (err, cdbuser) => {
+          console.log('user= '+user.uname);
+          
           // if (bcrypt.compare(user.pwd, hash)){
           // }
           if (err) {
             console.log(err)    
-          } else {
-            console.log(cdbuser.uname)   
-            console.log(cdbuser.pwd)
-            
+          } else {           
             if (!cdbuser){
               res.status(401).send('Invalid user-name or Password')
               console.log('Wrong Credential no user1')
