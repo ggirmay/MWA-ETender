@@ -10,22 +10,22 @@ import * as decode from 'jwt-decode';
   selector: 'app-login',
 template: `
 <mat-card>
-  <h3>Log In Page</h3>
+  <h2>Enter your username and password</h2>
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   <mat-form-field >
     <mat-label>User Name </mat-label>
-    <input matInput placeholder="cname" type="text" formControlName="uname">
+    <input matInput placeholder="user name" type="text" formControlName="uname">
   </mat-form-field><br>
   <mat-form-field >
   <mat-label>Password</mat-label>
-    <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
+    <input matInput placeholder="password" type="password" formControlName="pwd"/>
   </mat-form-field><br/>
-  <button>login</button>
+  <button type="submit" [disabled]="!regForm.valid" mat-raised-button color="primary">Login</button>
 
 </form>
 </mat-card>
   `,
-  styles: ['form, h3 {width:80%; margin:auto}']
+  styles: ['form, h2 {width:80%; margin:auto}']
 
 })
 export class LoginComponent implements OnInit {
