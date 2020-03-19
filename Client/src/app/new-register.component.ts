@@ -7,14 +7,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-new-register',
   template: `
-  <h3>Registering a Bidder</h3>
+  <mat-card>
+  <h3>Fill out this form to register</h3>
  
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   
-  <mat-radio-group aria-label="Select an option" formControlName="type">
-  <mat-radio-button name = "client" value="client" (click)="setradio('client')" checked="true"> Client </mat-radio-button><br/>
-  <mat-radio-button name = "bidder" value="bidder"(click)="setradio('bidder')" > Bidder </mat-radio-button>
-  </mat-radio-group><br/>
 
   <mat-form-field>
     <mat-label>Company Name</mat-label>
@@ -46,6 +43,11 @@ import { Router } from '@angular/router';
     <input matInput placeholder="pwd" type="password" formControlName="pwd"/>
   </mat-form-field><br/>
 
+  <mat-radio-group aria-label="Select an option" formControlName="type">Registering as
+  <mat-radio-button name = "client" value="client" (click)="setradio('client')" checked="true"> Client </mat-radio-button>
+  <mat-radio-button name = "bidder" value="bidder"(click)="setradio('bidder')" > Bidder </mat-radio-button>
+  </mat-radio-group><br/>
+
   <mat-form-field *ngIf="isSelected('bidder')">
   <mat-label>Catagory</mat-label><br/>
   <mat-select formControlName="catagory" multiple>
@@ -56,13 +58,11 @@ import { Router } from '@angular/router';
   </mat-select>
   </mat-form-field><br/>
   <button type="submit" mat-raised-button color="primary">Register</button>
-
-  
-  
+ 
 </form>
-
+</mat-card>
   `,
-  styles: []
+  styles: ['form, h3 {width:80%; margin:auto}']
 })
 export class NewRegisterComponent implements OnInit {
 regForm:FormGroup

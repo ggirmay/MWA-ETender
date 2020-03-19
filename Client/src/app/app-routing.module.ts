@@ -18,7 +18,8 @@ const routes: Routes = [
 { path:'login', component: LoginComponent },
 {path:'postBid', component:PostBidComponent},
 {path:'bidder',component:BidListComponent},
-{path:'winner',component:WinnerComponent}
+{path:'winner',component:WinnerComponent},
+{path:'',component:HomeComponent}
 ];
 
 
