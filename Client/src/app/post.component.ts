@@ -8,7 +8,7 @@ import * as decode from 'jwt-decode';
   template: `
   <mat-card>
   <h2>Welcome {{user}}</h2>
-  <h3>Posting a bet</h3>
+  <h3>Posting a bid</h3>
   <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
   <mat-form-field >
     <mat-label>item Name </mat-label>
@@ -74,7 +74,9 @@ this.user=this.payload.cname;
     .subscribe(
       res=> console.log(res),
       err=> console.log(err))
+      alert('Bid posted succesfully')
       this.postForm.reset();
+
   }
   ngOnInit(): void {
   }

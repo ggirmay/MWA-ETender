@@ -59,7 +59,7 @@ module.exports.savebidReceived=async function(req, res, next) {
 module.exports.getWinnerBidder= async function (req, res, next) {
     const client=new clientModel();
     // SampleModel.find( { dates : { $elemMatch: {  date : { $gte: 'DATE_VALUE' } } } } )
-    const x=  clientModel.find({_id:"5e728aaf904fa821b456e32d"}).select("biddeRecived");
+    const x=  clientModel.find({_id:"5e73a7134bc9192ac489ea93"}).select("biddeRecived");
     x.exec(function (err, someValue) {
         if (err) return next(err);
         res.send(someValue);
@@ -72,7 +72,7 @@ const id=req.body.clientId;
     const bidReceived=new bidReceivedModel(data); 
     const client=new clientModel();
     console.log("Aha"+bidReceived)
-    clientModel.findOneAndUpdate({_id:id },
+    clientModel.findOneAndUpdate({_id:'5e73a7134bc9192ac489ea93' },
         {$push:{biddeRecived:bidReceived}},
         (err, success)=> {
             if(err)

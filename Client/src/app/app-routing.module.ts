@@ -16,9 +16,9 @@ const routes: Routes = [
 { path:'bidde', component: PostComponent, canActivate :[LoginGuard] },
 { path:'register', component: NewRegisterComponent },
 { path:'login', component: LoginComponent },
-{path:'postBid', component:PostBidComponent},
-{path:'bidder',component:BidListComponent},
-{path:'winner',component:WinnerComponent},
+{path:'postBid', component:PostBidComponent, canActivate :[LoginGuard]},
+{path:'bidder',component:BidListComponent, canActivate :[LoginGuard]},
+{path:'winner',component:WinnerComponent, canActivate :[LoginGuard]},
 {path:'',component:HomeComponent}
 ];
 

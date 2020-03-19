@@ -9,7 +9,8 @@ module.exports.createbidde=async function(req, res, next) {
 
     const bidde=new biddeModel(data); 
     const client=new clientModel();
-    
+    const bid=new biddeModel(data);
+    bid.save();
     clientModel.findOneAndUpdate({_id:bidde.componey},
         {$push:{biddePlaced:bidde}},
         (err, success)=> {
@@ -76,17 +77,18 @@ module.exports.createbidde=async function(req, res, next) {
         
 // }
 
-module.exports.createbid=async function(req, res, next) {
-    const data=req.body;
 
-    const bidde=new biddeModel(data); 
+// module.exports.createbid=async function(req, res, next) {
+//     const data=req.body;
+
+//     const bidde=new biddeModel(data); 
     
-    // bidde.componey='5e6e953a55a16716800a0c67';
-    bidde.save((err, success)=> {
-            if(err)
-                console.log("err= " +err);
-             else
-                console.log("success= "+success);            
-        }
-    );
-}
+//     // bidde.componey='5e6e953a55a16716800a0c67';
+//     bidde.save((err, success)=> {
+//             if(err)
+//                 console.log("err= " +err);
+//              else
+//                 console.log("success= "+success);            
+//         }
+//     );
+// }

@@ -79,7 +79,7 @@ router.post('/login', loginController.checkUser);
 router.get('/bidder',bidController.getBidds);
 
 router.get('/bid',bidController.getBids);
-router.post('/bid', biddeController.createbid);
+// router.post('/bid', biddeController.createbid);
 router.post('/bidReceived',bidController.createbidReceived);
 router.get('/winner',bidController.getWinnerBidder);
 

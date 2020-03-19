@@ -8,7 +8,7 @@ const biddeSchema=new Schema({
         type:Number,trim:true},
     catagory:String,
     openingDate: {type: Date, required: true, default: Date.now(),},
-    closingDate:Date,   
+    deadline:Date,   
     Specification: { type: String},
     componey:{type:mongoose.Schema.Types.ObjectId, ref:'Client' }
 })
