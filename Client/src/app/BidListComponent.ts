@@ -24,7 +24,7 @@ this.postGroup = formbBuilder.group({
   formValue;
   bidlists;
   arrayData;
-  selectedData = {itemName: '', catagory: '', bidderId: '', clientId: ''};
+  selectedData = {itemName: '', catagory: '', bidderId: '', clientId: '',companyName:''};
   particularData;
   isclicked = false;
   ngOnInit() {
@@ -41,6 +41,7 @@ this.postGroup = formbBuilder.group({
     this.formValue.itemName = this.selectedData.itemName;
     this.formValue.catagory = this.selectedData.catagory;
     this.formValue.clientId = this.selectedData.clientId;
+    this.formValue.cname=this.selectedData.companyName;
 
     console.log('data of form= ' + JSON.stringify(this.formValue));
     this.bidListService.SaveAppliedBids(this.formValue)
@@ -56,10 +57,10 @@ this.postGroup = formbBuilder.group({
     this.selectedData.itemName = post.itemName;
     this.selectedData.catagory = post.catagory;
     this.selectedData.clientId = this.arrayData.componey._id;
-    this.formValue.companyName = post.companyName;
     const token = localStorage.getItem('token');
     const payload = decode(token)['subject'];
     this.selectedData.bidderId = payload._id;
+    this.selectedData.companyName=payload.cname;
   }
   saveAppliedBid() {
 
