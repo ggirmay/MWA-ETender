@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, MinLengthValidator } from '@angular/forms';
 import { RegService } from './reg.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   
   <mat-radio-group aria-label="Select an option" formControlName="type">
-  <mat-radio-button name = "client" value="client" (click)="setradio('client')" checked> Client </mat-radio-button>
+  <mat-radio-button name = "client" value="client" (click)="setradio('client')" checked="true"> Client </mat-radio-button><br/>
   <mat-radio-button name = "bidder" value="bidder"(click)="setradio('bidder')" > Bidder </mat-radio-button>
   </mat-radio-group><br/>
 
@@ -28,7 +28,7 @@ import { Router } from '@angular/router';
 
   <mat-form-field >
     <mat-label>Email</mat-label>
-    <input matInput placeholder="email" type="text" formControlName="email"/>
+    <input matInput placeholder="email" type="email" formControlName="email"/>
   </mat-form-field><br/>
   
   <mat-form-field >
@@ -72,10 +72,10 @@ regForm:FormGroup
           'lnumber':['', Validators.required],
           'usertype':['', Validators.required],
           'catagory': ['', Validators.required],
-          'email':['', Validators.required, Validators.email],
+          'email':['', [Validators.required, Validators.email]],
           'location':[''],
           'uname':['', Validators.required],
-          'pwd':['', Validators.required],
+          'pwd':['', [Validators.required, Validators.minLength(6)]],
           'type':['']
         })
   }
@@ -88,6 +88,11 @@ regForm:FormGroup
         res=> {
           console.log(res),
          localStorage.setItem('token', res.token)
+         if(formValue.type=='client')
+          this.router.navigate(['/bidde'])
+        else
+          this.router.navigate(['/bidder'])
+
         },
         err=> console.log(err) )
   }

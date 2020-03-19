@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
     this.regForm=fb.group({
       'uname':['', Validators.required],
       'pwd':['', Validators.required]
-    })
-    
+    }) 
   }
 
   onSubmit(){
@@ -48,7 +47,11 @@ export class LoginComponent implements OnInit {
         const payload=decode(res.token)['subject']
         console.log(payload._id);
         // console.log("decoded= "+JSON.stringify(decoded))
-      this._router.navigate(['/bidde'])
+        console.log("type= "+payload.type);
+        if(payload.type=='client')
+          this._router.navigate(['/bidde'])
+        else
+          this._router.navigate(['/bidder'])
       
       },
       err=> console.log(err))   
