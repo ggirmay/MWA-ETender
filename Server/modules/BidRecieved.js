@@ -13,7 +13,7 @@ const bidRecievedSchema=new Schema({
         bidderId:{
             type:mongoose.Schema.Types.ObjectId,ref:'Bidder'
         },
-        PriceAmount:Number,
+        amount:Number,
         appliedDate:Date,
 })
 
