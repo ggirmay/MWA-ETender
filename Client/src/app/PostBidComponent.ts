@@ -17,7 +17,8 @@ import * as decode from 'jwt-decode';
     <mat-label>Amount</mat-label>
     <input matInput placeholder="optional" type="text" formControlName="amount"/>
   </mat-form-field><br/>
-  <button mat-raised-button color="primary">Save</button>
+  <button type="submit" [disabled]="!postGroup.valid" mat-raised-button color="primary">login</button>
+
 </form>
 </mat-card>
   `,

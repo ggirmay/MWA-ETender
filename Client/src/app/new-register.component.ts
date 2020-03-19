@@ -55,8 +55,8 @@ import { Router } from '@angular/router';
   <mat-option value="IT">IT</mat-option>
   </mat-select>
   </mat-form-field><br/>
-  <button>Submit</button>
-  
+  <button type="submit" mat-raised-button color="primary">Register</button>
+
   
   
 </form>
@@ -72,7 +72,7 @@ regForm:FormGroup
           'lnumber':['', Validators.required],
           'usertype':['', Validators.required],
           'catagory': ['', Validators.required],
-          'email':['', Validators.required],
+          'email':['', Validators.required, Validators.email],
           'location':[''],
           'uname':['', Validators.required],
           'pwd':['', Validators.required],

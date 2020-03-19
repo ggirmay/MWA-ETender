@@ -9,6 +9,7 @@ import * as decode from 'jwt-decode';
 @Component({
   selector: 'app-login',
 template: `
+<mat-card>
   <h3>Log In Page</h3>
   <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   <mat-form-field >
@@ -22,6 +23,7 @@ template: `
   <button>login</button>
 
 </form>
+</mat-card>
   `,
   styles: ['form, h3 {width:80%; margin:auto}']
 
