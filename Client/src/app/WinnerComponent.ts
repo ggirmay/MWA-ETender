@@ -6,8 +6,9 @@ import { BidService } from './BidService';
 @Component({
   selector: 'app-winner',
   template: `<div>
-
-    <h1>{{anotherArrayData.PriceAmount}}</h1>
+<h1>Based on the price you provided </h1>
+    <h1>{{anotherArrayData.companyName}}  is a Winner!!!</h1>
+    <h1>Thank you for your participation</h1>
   </div>
 
   `
@@ -26,11 +27,33 @@ constructor(private router: Router,  private bidListService: BidService, private
 ngOnInit() {
     this.bidListService.getWinner().subscribe(data => {
     this.winner = data;
-    this.arrayData = data[0];
-    // console.log(this.arrayData.bidder[0].PriceAmount)
+    console.log(this.winner);
 
-    this.anotherArrayData = this.arrayData.bidder[0];
-    console.log(this.anotherArrayData.PriceAmount);
+    this.arrayData = data[0];
+
+
+    console.log(this.arrayData.biddeRecived.length);
+
+
+
+    let min = this.arrayData.biddeRecived[0].amount;
+    let index = 0;
+    for (let i = 1; i < this.arrayData.biddeRecived.length; i++) {
+    if (this.arrayData.biddeRecived[i].amount < min) {
+        min = this.arrayData.biddeRecived[i].amount;
+        index = i;
+    }
+}
+    console.log(min);
+    console.log("index:"+index);
+
+
+
+
+
+
+    this.anotherArrayData = this.arrayData.biddeRecived[index];
+    console.log(this.anotherArrayData.amount);
 
   });
 }

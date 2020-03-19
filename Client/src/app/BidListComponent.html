@@ -3,7 +3,7 @@
   <div class ="parent" *ngFor="let post of bidlists " (click)="selectedBid(post)">
     <h3  > ItemName {{post.itemName}}</h3>
     <p > catagory {{post.catagory}}
-      <p> openingDate {{post.openingDate}}
+      <p> openingDate {{post.openingDate|date:"MM/dd/yyyy"}}
       <p> Amount {{post.amount}}
       <p> Deadline {{post.closingDate}}
       <p> Specification {{post.Specification}}
@@ -12,15 +12,15 @@
      <h5> Fill out the form</h5>
 
      <mat-card>
-       <form [formGroup]="postGroup" (ngSubmit)="applyBid()">
+       <form [formGroup]="postGroup" (ngSubmit)="applyForBid()">
         <mat-form-field >
           <mat-label>Company Name </mat-label>
           <input matInput placeholder="Company Name" type="text" formControlName="companyName"/>
         </mat-form-field><br/>
        <mat-form-field >
          <mat-label>Applying Date</mat-label>
-         <input matInput placeholder="applying Date" type="date"  min="2020-01-01"
-          max="2020-07-07" formControlName="applyingDate"/>
+         <input matInput placeholder="applying Date" type="date"
+           formControlName="appliedDate"/>
        </mat-form-field><br/>
        <mat-form-field >
          <mat-label>Amount </mat-label>

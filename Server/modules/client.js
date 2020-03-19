@@ -12,6 +12,18 @@ const clientSchema=new Schema({
     uname:String, 
     pwd : {type: String, required:true, maxLength:80},
     biddePlaced:{type:Array},
+    biddeRecived:[{
+
+        itemName:String,
+        companyName:String,
+        catagory:{type:  String,trim:true,},
+        
+        
+            bidderId:{ type:mongoose.Schema.Types.ObjectId,ref:'Client' },
+            clientId:{ type:mongoose.Schema.Types.ObjectId,ref:'Bidder' },
+            amount:Number,
+            appliedDate:Date.now(),
+    }],
     biddeRecived:{type:Array},
     type:String
     // componeyName:{type:String, required:true },

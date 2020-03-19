@@ -13,18 +13,18 @@ styleUrls: ['./BidListComponent.css']
 })
 export class BidListComponent implements OnInit {
   constructor(private router: Router,  private bidListService: BidService, private formbBuilder: FormBuilder) {
-    this.postGroup = formbBuilder.group({
-      companyName:['',Validators.required],
+const date = new Date();
+this.postGroup = formbBuilder.group({
+      companyName: ['', Validators.required],
+      appliedDate: [ date, Validators.required],
       amount: ['', Validators.required],
-      applyingDate: ['', Validators.required],
     });
   }
   postGroup: FormGroup;
   formValue;
   bidlists;
   arrayData;
-// viewData=[this.arrayData.itemName,this.arrayData.catagory,this.arrayData.openingDate,this.arrayData.amount,
-//   this.arrayData.closingDate,this.arrayData.specification]
+  selectedData = {itemName: '', catagory: '', bidderId: '', clientId: ''};
   particularData;
   isclicked = false;
   ngOnInit() {
@@ -32,13 +32,18 @@ export class BidListComponent implements OnInit {
          this.arrayData = data[0];
          this.bidlists = data;
          console.log('bidLists' + this.bidlists);
-         console.log('company' + this.arrayData.componey.location);
+         console.log('company' + this.arrayData.componey._id);
       });
   }
-  applyBid() {
+  applyForBid() {
+    alert('Aha');
     this. formValue = this.postGroup.value;
+    this.formValue.itemName = this.selectedData.itemName;
+    this.formValue.catagory = this.selectedData.catagory;
+    this.formValue.clientId = this.selectedData.clientId;
+
     console.log('data of form= ' + JSON.stringify(this.formValue));
-    this.bidListService.SavefBids(this.formValue)
+    this.bidListService.SaveAppliedBids(this.formValue)
     .subscribe(
       res => console.log(res),
       err => console.log(err));
@@ -48,31 +53,16 @@ export class BidListComponent implements OnInit {
     console.log('hello');
   }
   selectedBid(post) {
-this.formValue.itemName = post.itemName;
-this.formValue.catagory = post.catagory;
-this.formValue.companyName = post.companyName;
-const token = localStorage.getItem('token');
-const payload = decode(token)['subject'];
-this.formValue.bidderId = payload._id;
+    this.selectedData.itemName = post.itemName;
+    this.selectedData.catagory = post.catagory;
+    this.selectedData.clientId = this.arrayData.componey._id;
+    this.formValue.companyName = post.companyName;
+    const token = localStorage.getItem('token');
+    const payload = decode(token)['subject'];
+    this.selectedData.bidderId = payload._id;
   }
   saveAppliedBid() {
-//   const formValue=this.postForm.value;
-//   const token=localStorage.getItem('token');
-//   const payload=decode(token)['subject']
-//   formValue.componey=payload._id;
-//   console.log(JSON.stringify(formValue));
-//   this._biddeService.createBidde(formValue)
-//   .subscribe(
-//     res=> console.log(res),
-//     err=> console.log(err))
-//     this.postForm.reset()
 
 
-  //   const formValue = this.postGroup.value;
-  //   console.log('data of form= ' + JSON.stringify(formValue));
-  //   this.bidListService.SaveAppliedBids(formValue)
-  //   .subscribe(
-  //     res => console.log(res),
-  //     err => console.log(err));
    }
 }
